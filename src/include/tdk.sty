@@ -2,6 +2,8 @@
 
 \ProvidesPackage{include/tdk}
 
+\RequirePackage{xpatch}
+
 %
 % Encoding and language
 %
@@ -10,7 +12,7 @@
 \RequirePackage[utf8]{inputenc}
 
 \def\magyarOptions{defaults=over-1.4,dottedtocline=unchanged}
-\RequirePackage[magyar,english]{babel}
+\RequirePackage[english,magyar]{babel}
 
 \RequirePackage{csquotes}
 
@@ -43,6 +45,14 @@
 \renewcommand*{\chaptitlefont}{\normalfont\Huge\sffamily\bfseries\color{black}}
 \renewcommand*{\cftchapterfont}{\normalfont\sffamily\bfseries}
 \renewcommand*{\cftchapterpagefont}{\cftchapterfont}
+\renewcommand*{\chapternamenum}{.~}
+
+% Hungarian order in chapter names
+\xpatchcmd{\@makechapterhead}{%
+  \printchaptername \chapternamenum \printchapternum%
+}{%
+  \printchapternum \chapternamenum \printchaptername%
+}
 
 % Sans serif headings
 \setsecheadstyle{\Large\sffamily\bfseries}
@@ -76,7 +86,7 @@
 \makeoddfoot{tdk}{}{}{}
 \makepsmarks{tdk}{%
   \def\chaptermark##1{%
-    \markboth{\thechapter\quad##1}{}}%
+    \markboth{\thechapter.~##1}{}}%
   \def\tocmark{%
     \markboth{\contentsname}{}}
   \def\sectionmark##1{%
@@ -180,7 +190,7 @@
   \vbox to.675em{\hrule width.6em\vfil\hrule}%
   \vrule\hfil}}
 \gdef\proofSymbol{\openbox}
-\providecommand{\proofname}{Proof}
+\providecommand{\proofname}{Bizonyítás}
 \newenvironment{proof}[1][\proofname]{%
   \th@nonumberplain
   \def\theorem@headerfont{\itshape}%
@@ -192,8 +202,8 @@
 % Upright parentheses in theorem titles, leave an em space after
 % theorem number
 \newtheoremstyle{tdk}%
-{\labelsep=1em\item[\hskip\labelsep \theorem@headerfont ##1~##2\theorem@separator]}%
-{\labelsep=1em\item[\hskip\labelsep {\theorem@headerfont ##1~##2}~\paren{##3}\theorem@separator]}
+{\labelsep=1em\item[\hskip\labelsep \theorem@headerfont ##2.~##1\theorem@separator]}%
+{\labelsep=1em\item[\hskip\labelsep {\theorem@headerfont ##2.~##1}~\paren{##3}\theorem@separator]}
 \theoremstyle{tdk}
 \theoremseparator{}
 
@@ -215,10 +225,10 @@
 
 % Cleveref adds the type of the referred entity (eg. Section~1.1) to
 % the reference. 
-\RequirePackage[capitalise,noabbrev]{cleveref}
+\RequirePackage[noabbrev]{cleveref}
 % Protect pages and equations from capitalization
-\crefname{page}{{p}age}{{p}ages}
-\crefname{equation}{{e}q.}{{e}qs.}
+\crefname{page}{o.}{o.}
+\crefname{equation}{egyenlet}{egyenletek}
 
 % Make \labelref varioref-aware
 \DeclareRobustCommand{\labelvref}{\cref@vref{labelcref}}
@@ -260,13 +270,13 @@
 % We must define theorems after cleveref.
 
 % Define theorem-like environments
-\newshadedtheorem{thm}{Theorem}[chapter]
-\newshadedtheorem{prop}[thm]{Proposition}
-\newshadedtheorem{lem}[thm]{Lemma}
-\newshadedtheorem{dfn}[thm]{Definition}
-\newshadedtheorem{obs}[thm]{Observation}
-\newshadedtheorem{example}{Example}[chapter]
-\newshadedtheorem{runningExample}[example]{Running example}
+\newshadedtheorem{thm}{tétel}[chapter]
+\newshadedtheorem{prop}[thm]{állítás}
+\newshadedtheorem{lem}[thm]{lemma}
+\newshadedtheorem{dfn}[thm]{definíció}
+\newshadedtheorem{obs}[thm]{megyfigyelés}
+\newshadedtheorem{cor}[thm]{következmény}
+\newshadedtheorem{example}{példa}[chapter]
 
 %
 % Graphics
@@ -343,29 +353,6 @@
 \let\endalgorithmhere\endalgorithm
 \renewenvironment{algorithm}{\algorithmhere[tp]}{\endalgorithmhere}
 \newenvironment{algorithmpage}{\algorithmhere[p]}{\endalgorithmhere}
-
-%
-% Listings
-%
-
-\RequirePackage{listings}
-\lstset{
-  basicstyle=\ttfamily,columns=fullflexible,
-  captionpos=t,belowcaptionskip=0.7\baselineskip,
-  frame=lines,framerule=\heavyrulewidth,
-  numberbychapter=true,
-  showspaces=false,showtabs=false,tabsize=4,
-  breaklines=true,breakatwhitespace=true,
-  numbers=left,numberstyle=\scriptsize,numberblanklines=false,
-  xleftmargin=2em,framexleftmargin=2em,
-  commentstyle=\thinfont,
-  stringstyle=\color{black!75},
-  language=[Sharp]C,morekeywords={var,yield,get,set}
-}
-
-% http://tex.stackexchange.com/a/47694
-\crefname{lstlisting}{Listing}{Listings}
-\Crefname{lstlisting}{Listing}{Listings}
 
 %
 % Bibliography
