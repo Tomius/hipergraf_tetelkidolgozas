@@ -22,12 +22,39 @@
 \newcommand*{\NNpos}{\NN^{+}} % Positive whole numbers
 
 %
+% Disjoint unions
+%
+
+% http://tex.stackexchange.com/a/52673/8744
+\makeatletter
+\def\moverlay{\mathpalette\mov@rlay}
+\def\mov@rlay#1#2{\leavevmode\vtop{%
+   \baselineskip\z@skip \lineskiplimit-\maxdimen
+   \ialign{\hfil$\m@th#1##$\hfil\cr#2\crcr}}}
+\newcommand{\charfusion}[3][\mathord]{
+    #1{\ifx#1\mathop\vphantom{#2}\fi
+        \mathpalette\mov@rlay{#2\cr#3}
+      }
+    \ifx#1\mathop\expandafter\displaylimits\fi}
+\makeatother
+
+\newcommand*{\cupdot}{\charfusion[\mathbin]{\cup}{\cdot}}
+\newcommand*{\bigcupdot}{\charfusion[\mathop]{\bigcup}{\cdot}}
+
+%
 % Probability
 %
 
 \let\Pr\relax
 \DeclareMathOperator{\Pr}{\mathbb{P}}
 \DeclareMathOperator{\Ex}{\mathbb{E}}
+
+%
+% Hipergraphs
+%
+
+\newcommand*{\HH}{\mathcal{H}}
+\newcommand*{\EE}{\mathcal{E}}
 
 %%% Local Variables:
 %%% mode: latex

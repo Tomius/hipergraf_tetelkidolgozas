@@ -1,5 +1,24 @@
 \chapter{Hipergráfok és gráfparaméterek}
 
+\begin{dfn}
+  A $\HH = (V, \EE)$ pár \emph{hipergráf} (vagy \emph{halmazrendszer}), ahol $V$
+  a \emph{csúcsok} halmaza, és $\EE \subseteq 2^V$ a \emph{hiperélek} halmaza.
+\end{dfn}
+
+\begin{dfn}
+  A $\HH = (V, \EE)$ hipergráf \emph{$r$-uniform}, ha minden $E \in \EE$ hiperél
+  pontosan $\lvert E \rvert = r$ csúcsot tartalmaz.
+\end{dfn}
+
+Minden $G = (V, E)$ gráf tekinthető $2$-uniform hipergráfnak.
+
+\begin{dfn}
+  A $\HH = (V, \EE)$ $r$-uniform hipergráf \emph{$r$-színes}, ha a csúcshalmaza
+  partícionálható $V = V_1 \cupdot V_2 \cupdot \ldots \cupdot V_k$ halmazokra
+  úgy, hogy minden $E \in \EE$ él minden $V_i$ halmazból pontosan egy csúcsot
+  tartalmaz.
+\end{dfn}
+
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "../main"
