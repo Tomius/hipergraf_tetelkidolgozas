@@ -19,6 +19,23 @@ Minden $G = (V, E)$ gráf tekinthető $2$-uniform hipergráfnak.
   tartalmaz.
 \end{dfn}
 
+\begin{dfn}
+  Egy $\HH$ hipergráf \emph{gyengén $k$ színnel színezhető}, ha ki lehet színezni a csúcsait $k$ színnel úgy, hogy nincsen egyszínű éle.
+  Egy $\HH$ hipergráf \emph{gyenge kromatikus száma} a legkisebb olyan $\weakChromatic(\HH) = k$, amelyre $\HH$ gyengén $k$ színnel színezhető.
+\end{dfn}
+
+\begin{dfn}
+  Egy $\HH$ hipergráf \emph{erősen $k$ színnel színezhető}, ha ki lehet színezni a csúcsait $k$ színnel úgy, hogy egy élen belül nem tartalmaz két azonos színű csúcsot.
+  Egy $\HH$ hipergráf \emph{erős kromatikus száma} a legkisebb olyan $\strongChromatic(\HH) = k$, amelyre $\HH$ erősen $k$ színnel színezhető.
+\end{dfn}
+
+\textbf{TODO: klikkgráf}
+
+\begin{dfn}
+  Egy $\HH$ hipergráf \emph{$k$ színnel élszínezhető}, ha ki lehet színezni éleit $k$ színnel úgy, hogy az egymást metsző hiperélek nem lehetnek azonos színűek.
+  Egy $\HH$ hipergráf \emph{élkromatikus száma} a legkisebb olyan $\edgeChromatic(\HH) = k$, amelyre $\HH$ erősen $k$ színnel színezhető.
+\end{dfn}
+
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "../main"
