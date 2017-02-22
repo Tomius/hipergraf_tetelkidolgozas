@@ -2,36 +2,27 @@
 \thispagestyle{empty}
 
 \begin{tikzpicture}[overlay,remember picture]
-  \node at (current page.center) [yshift=1cm] {%
+  \node at (current page.center) [yshift=-3cm] {%
     \begin{minipage}{\textwidth}
 
       \centering
 
-      \includegraphics[width=7cm]{include/figures/bme_logo}
-      \vspace{0.3cm}
-
-      \bme \\
-      \vik \\
-      \bmemit \\
-      \vspace{3.5cm}
-
-      {\Large \authori \par}
-      \vspace{0.5cm}
-
       {\Huge\sffamily\bfseries \titlepagetitle \par}
-      \vspace{1cm}
-
-      {\large \vikdoctype \par}
-      \vspace{3.5cm}
+      \vspace{4cm}
 
       {\Large 
-        \advisors: \\ \vspace{0.3cm}
-        \advisori \\
-        \advisorii \\
-        \advisoriii\par}
-
+        \lecturer: \\ \vspace{0.3cm}
+        \lectureri\par}
       \vspace{1.5cm}
-      {\large \viktdklocation, \viktdkyear\par}
+      
+      {\Large 
+        \authors: \\ \vspace{0.3cm}
+        \authori \\
+        \authorii \\
+        \authoriii\par}
+      \vspace{1.5cm}
+
+      {\Large \semester\par}
 
     \end{minipage}};
 \end{tikzpicture}

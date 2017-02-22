@@ -1,4 +1,4 @@
-PROJECTNAME=MScThesis
+PROJECTNAME=hipergrafok
 
 .PHONY: all clean
 
