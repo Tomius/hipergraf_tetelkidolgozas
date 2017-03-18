@@ -465,4 +465,27 @@
 % Include thesis topic as a literal
 \RequirePackage{pdfpages}
 
+\newcommand{\includepng}[3][width=\textwidth] {
+  \includegraphics[#1, keepaspectratio]{figures/#2.png}
+  \ifthenelse{\equal{#3}{}}{}{\caption{#3.}}
+  \label{fig:#2}
+}
+
+\newcommand{\includefigure}[3][width=\textwidth] {
+  \begin{figure}[!ht]
+    \centering
+    \includepng[#1]{#2}{#3}
+  \end{figure}
+}
+
+\newcommand{\includefigurehere}[3][width=\textwidth] {
+  \begin{center}
+    \includegraphics[#1, keepaspectratio]{figures/#2.png}
+    \ifthenelse{\equal{#3}{}}{}{\captionof{figure}{#3.}}
+    \label{fig:#2}
+  \end{center}
+}
+
+\setlength\parindent{0pt}
+
 \endinput
