@@ -10,7 +10,33 @@ Empirikus próbálgatással könnyen észrevehetjük, hogy 8 nyelv elég, ugyani
 
 A Sperner-tétel bizonyítást is ad arra, hogy 8 nyelvet ennél ``okosabban'' nem tudunk szétosztani tolmácsok között, azaz 8 nyelv esetén legfeljebb 70 darab, a feltételnek megfelelő tolmács lehet. Ehhez persze először szükségünk van a probléma formalizációjára, ahol a tolmácsokra mint nyelvek halmazára tekintünk, az összes tolmács egy halmazrendszert alkot, és ennek az elemszámára szeretnénk valamilyen állítást.
 
-\begin{thm} Sperner-tétel:
+\begin{dfn}
+Egy $\AA \subseteq 2^{[n]}$ \emph{Sperner rendszer}, ha $\forall A, B \in \AA: A \not \subseteq B, B \not \subseteq A$, ha $A \neq B$.
+\end{dfn}
 
-Ha $\AA \subseteq 2^{[n]}$ olyan, hogy $\forall A, B \in \AA: A \not \subseteq B, B \not \subseteq A$, ha $A \neq B$, akkor $|\AA| \leq \binom{n}{\lfloor \frac{n}{2} \rfloor}$
+\begin{thm} Sperner-tétel:
+Ha $\AA$ egy Sperner rendszer, akkor $|\AA| \leq \binom{n}{\lfloor \frac{n}{2} \rfloor}$
 \end{thm}
+
+Bizonyítás (dupla leszámlálással):
+
+(Jelölés: $S_n$ jelentse az n elemű szimmetrikus csoportot, azaz az első n elem permutációját.)
+
+Tekintsük az olyan $(A, \sigma)$ párokat, ahol $A \in \AA$ és $\sigma \in S_n$, $\sigma = \sigma(1)\sigma(2) \dots \sigma(n)$ és $A = \sigma(1)\sigma(2) \dots \sigma(k)$, valamely k-ra (k=|A|). Azaz az $A$ ``párja'' $\sigma$-nak azt jelenti, hogy az $A$ eleminek létezik olyan sorrendje, hogy az így kapott sorozat prefixe a $\sigma$-nak.
+
+Az ilyen párok halmazát jelöljük $T$-vel.
+
+Egyrészt rögzített $\sigma \in S_n$-re legfeljebb egy $A \in \AA$ lehet, ami az ő párja, mert ha több is lenne, akkor azok tartalmaznák egymást, ami a Sperner-rendszer feltétele miatt ellentmondás. Emiatt $T$-nek legfeljebb annyi eleme lehet, ahány különböző értéket a $\sigma$ felvehet:
+\[|T| \leq |S_n| = n!.\]
+
+Másrészt rögzített $A \in \AA$ esetén a hozzá párba állítható $\sigma$-k számát csak az $A$-beli elemek sorrendje, és az $A$-ban nem szereplő, a $\sigma$ első $|A|$ eleme után folytatódó elemek sorrendje befolyásolja, vagyis a T-beli elemek száma:
+\[|T| = \sum_{A \in \AA} |A|! (n-|A|)! \geq |\AA| \lfloor \frac{n}{2} \rfloor ! \lceil \frac{n}{2} \rceil !.\]
+
+T elemszámára két összefüggést kaptunk, ezeket összevetve:
+\begin{align}
+|\AA| \lfloor \frac{n}{2} \rfloor ! \lceil \frac{n}{2} \rceil ! &\leq |T| \leq n! \\
+|\AA| &\leq \frac{n!}{\lfloor \frac{n}{2} \rfloor ! \lceil \frac{n}{2} \rceil !}\\
+|\AA| &\leq \binom{n}{\lfloor \frac{n}{2} \rfloor}.
+\end{align}
+
+\QED
