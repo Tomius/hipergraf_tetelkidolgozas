@@ -1,0 +1,16 @@
+\chapter{A Sperner rendszerek}
+
+A Sperner rendszerek létjogosultságának megértéséhez először tekintsük az alábbi OKTV döntő feladatot 1979-ből:
+
+\begin{task}
+Adott 70 tolmács, akik közül bármely két $A, B$ tolmácsra igaz, hogy $A$ beszél olyan nyelvet, amit $B$ nem. Legkevesebb hány különböző nyelvet beszél a 70 tolmács összesen?
+\end{task}
+
+Empirikus próbálgatással könnyen észrevehetjük, hogy 8 nyelv elég, ugyanis minden tolmácshoz négy különböző nyelvet pontosan $\binom{8}{4} = 70$ féleképpen lehet rendelni.
+
+A Sperner-tétel bizonyítást is ad arra, hogy 8 nyelvet ennél ``okosabban'' nem tudunk szétosztani tolmácsok között, azaz 8 nyelv esetén legfeljebb 70 darab, a feltételnek megfelelő tolmács lehet. Ehhez persze először szükségünk van a probléma formalizációjára, ahol a tolmácsokra mint nyelvek halmazára tekintünk, az összes tolmács egy halmazrendszert alkot, és ennek az elemszámára szeretnénk valamilyen állítást.
+
+\begin{thm} Sperner-tétel:
+
+Ha $\AA \subseteq 2^{[n]}$ olyan, hogy $\forall A, B \in \AA: A \not \subseteq B, B \not \subseteq A$, ha $A \neq B$, akkor $|\AA| \leq \binom{n}{\lfloor \frac{n}{2} \rfloor}$
+\end{thm}

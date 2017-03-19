@@ -6,18 +6,20 @@
 \end{dfn}
 
 \begin{dfn}
-  A $\HH = (V, \EE)$ hipergráf \emph{$r$-uniform}, ha minden $E \in \EE$ hiperél
-  pontosan $\lvert E \rvert = r$ csúcsot tartalmaz.
+  A $\HH = (V, \EE)$ hipergráf \emph{$r$-uniform}, ha minden $e \in \EE$ hiperél
+  pontosan $\lvert e \rvert = r$ csúcsot tartalmaz.
 \end{dfn}
 
 Minden $G = (V, E)$ gráf tekinthető $2$-uniform hipergráfnak.
 
 \begin{dfn}
-  A $\HH = (V, \EE)$ $r$-uniform hipergráf \emph{$r$-színes}, ha a csúcshalmaza
+  A $\HH = (V, \EE)$ $r$-uniform hipergráf \emph{$r$-részes}, ha a csúcshalmaza
   partícionálható $V = V_1 \cupdot V_2 \cupdot \ldots \cupdot V_k$ halmazokra
   úgy, hogy minden $E \in \EE$ él minden $V_i$ halmazból pontosan egy csúcsot
   tartalmaz.
 \end{dfn}
+
+Minden páros gráf tekinthető $2$-részes hipergráfnak.
 
 \begin{dfn}
   Egy $\HH$ hipergráf \emph{gyengén $k$ színnel színezhető}, ha ki lehet színezni a csúcsait $k$ színnel úgy, hogy nincsen egyszínű éle.
@@ -29,12 +31,45 @@ Minden $G = (V, E)$ gráf tekinthető $2$-uniform hipergráfnak.
   Egy $\HH$ hipergráf \emph{erős kromatikus száma} a legkisebb olyan $\strongChromatic(\HH) = k$, amelyre $\HH$ erősen $k$ színnel színezhető.
 \end{dfn}
 
-\textbf{TODO: klikkgráf}
+\begin{obs}
+  Vegyük észre, hogy egy $\HH = (V, \EE)$ hipergráfra a $\strongChromatic(\HH)$ kiszámolható úgy is, hogy minden $E \in \EE$ hiperélet kicserélünk egy $\lvert E \rvert$ elemű klikk éleire, és az így kapott gráfnak nézzünk a kromatikus számát. Azaz vegyünk egy $\GG = (V, \EE')$ gráfot, aminek a csúcspontjai megegyeznek a hipergráféval, és az éleire az igaz, hogy $xy \in \EE'$, pontosan akkor, ha $x,y \in E \in \EE$, és ekkor $\chromatic(\GG) = \strongChromatic(\HH)$.
+
+  Azt is vegyük észre, hogy több különböző hipergráfnak is lehet azonos így kapott származtatott gráfja, és az erős kromatikus szám inkább a származtatott gráfot, mint az eredeti hipergráfot jellemzi.
+\end{obs}
+
+\begin{dfn}
+  Egy $\HH$ hipergráf $\chromatic(\HH)$ \emph{kromatikus száma} alatt a gyenge kromatikus számát értjük.
+\end{dfn}
 
 \begin{dfn}
   Egy $\HH$ hipergráf \emph{$k$ színnel élszínezhető}, ha ki lehet színezni éleit $k$ színnel úgy, hogy az egymást metsző hiperélek nem lehetnek azonos színűek.
   Egy $\HH$ hipergráf \emph{élkromatikus száma} a legkisebb olyan $\edgeChromatic(\HH) = k$, amelyre $\HH$ erősen $k$ színnel színezhető.
 \end{dfn}
+
+\begin{dfn}
+  A $\nu(\HH)$ a független élek maximális számát jelöli. Hipergráfok esetén két él akkor független, ha a csúcshalmazuk diszjunkt.
+\end{dfn}
+
+\begin{dfn}
+  A $\tau(\HH)$ a lefogó pontok minimális számát jelöli. Hipergráfok esetén ez olyan csúcshalmazt jelent, mely minden élből tartalmaz legalább egyet.
+\end{dfn}
+
+\begin{thm} \label{rhm:nuleqtau}
+  A $\nu(\HH) \leq \tau(\HH)$ gráfokra ismert összefüggés hipergráfokra is igaz.
+\end{thm}
+
+Bizonyítás: Ha $M$ egy maximális független élhalmaz, akkor csak ahhoz, hogy lefogjuk M éleit $\nu(\HH) = \left|M\right|$ pontra van szükségünk, vagyis $\tau(\HH) \geq \left|M\right| = \nu(\HH)$.
+
+\begin{conjecture} (Ryser-sejtés)
+  Ha $\HH$~egy $k$-részes $k$-uniform hipergráf, akkor
+  \[\tau(\HH) \leq (k-1) v(\HH).\]
+\end{conjecture}
+
+Megjegyzések:
+\begin{itemize}
+  \item A $\tau(\HH) \leq k \cdot v(\HH)$ egyenlőtlenség könnyen látható, hogy igaz, mert egy maximális független élhalmaz legfeljebb $k v(\HH)$ db csúcspontja már minden élt lefog.
+  \item Páros gráfokra a Ryser-sejtés visszaadja a $\tau(\HH) \leq v(\HH)$ összefüggést. Ebből a \aref{rhm:nuleqtau}. tételt is felhasználva megkapjuk a Kőnig-tételt: $\tau(\HH) = v(\HH)$.
+\end{itemize}
 
 %%% Local Variables:
 %%% mode: latex
