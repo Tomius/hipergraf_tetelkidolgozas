@@ -12,32 +12,53 @@ Példa $n=8, r=3$ esetén olyan $\FF$-ekre, ahol $|\partial \FF|$ minimális:
 \begin{itemize}
   \item $\left\{ \begin{aligned}
     m &= 2 \\
-    \FF &= \{\{1,2,3\}, \{2,3,4\}\} \\
-    \partial \FF &= \{\{1,2\}, \{2,3\}, \{1,3\}, \{2,4\}, \{3,4\}\}
+    \FF &= \{123, 234\} \hspace{2em} \left(\text{ami egy jelölés erre:} \{\{1,2,3\}, \{2,3,4\}\}\right) \\
+    \partial \FF &= \{12, 23, 13, 24, 34\}
   \end{aligned} \right.$
 
   \item $\left\{ \begin{aligned}
     m &= 3 \\
-    \FF &= \{\{1,2,3\}, \{2,3,4\}, \{1,2,4\}\} \\
-    \partial \FF &= \{\{1,2\}, \{2,3\}, \{1,3\}, \{2,4\}, \{3,4\}, \{1,4\}\}
+    \FF &= \{123, 234, 124\} \\
+    \partial \FF &= \{12, 23, 13, 24, 34, 14\}
   \end{aligned} \right.$
 
   \item $\left\{ \begin{aligned}
     m &= 4 \\
-    \FF &= \{\{1,2,3\}, \{2,3,4\}, \{1,2,4\}, \{1,3,4\}\} \\
-    \partial \FF &= \{\{1,2\}, \{2,3\}, \{1,3\}, \{2,4\}, \{3,4\}, \{1,4\}\}
+    \FF &= \{123, 234, 124, 134\} \\
+    \partial \FF &= \{12, 23, 13, 24, 34, 14\}
   \end{aligned} \right.$
 
   \item $\left\{ \begin{aligned}
     m &= 5 \\
-    \FF &= \{\{1,2,3\}, \{2,3,4\}, \{1,2,4\}, \{1,3,4\}, \{1,2,5\}\} \\
-    \partial \FF &= \{\{1,2\}, \{2,3\}, \{1,3\}, \{2,4\}, \{3,4\}, \{1,4\}, \{1,5\}, \{2,5\}\}
+    \FF &= \{123, 234, 124, 134, 125\} \\
+    \partial \FF &= \{12, 23, 13, 24, 34, 14, 15, 25\}
   \end{aligned} \right.$
 
   \item $\left\{ \begin{aligned}
     m &= 6 \\
-    \FF &= \{\{1,2,3\}, \{2,3,4\}, \{1,2,4\}, \{1,3,4\}, \{1,2,5\}, \{2,3,5\}\} \\
-    \partial \FF &= \{\{1,2\}, \{2,3\}, \{1,3\}, \{2,4\}, \{3,4\}, \{1,4\}, \{1,5\}, \{2,5\}, \{3,5\}\}
+    \FF &= \{123, 234, 124, 134, 125, 235\} \\
+    \partial \FF &= \{12, 23, 13, 24, 34, 14, 15, 25, 35\}
   \end{aligned} \right.$
 
+\end{itemize}
+
+\begin{obs}
+  Az előbbi példa alapján kézenfekvőnek tűnik az a sejtés, hogy a $\binom{[n]}{r}$ halmazoknak létezik olyan sorrendje, hogy a sorrend első $m$ elemének az árnyéka minimális. A későbbiekben látni fogjuk, hogy ez a sejtés igaz.
+\end{obs}
+
+
+A $\binom{[n]}{r}$ nevezetes sorrendjei közül kettő:
+\begin{itemize}
+  \item lexikografikus:\hphantom{ko} $\{a_1, a_2, ..., a_r\} < \{b_1, b_2, ..., b_r\}$, ha $\exists i: a_i < b_i$ és $\forall j < i: a_j = b_j$.
+
+  Ez egy könnyen érhető, gyakorlatban sokszor használt rendezési módszer (pl telefonkönyv). Viszont nyilvánvalóan nem minimalizálja az halmazrendszer árnyékát. Az előző példában szereplő paraméterek esetén $m=3$-ra a lexikografikus sorozat első három elemének, az $\{123, 124, 125\}$ halmaznak már hét elemű az árnyéka, pedig láttuk, hogy lehetséges hat elemű árnyékot generálni.
+  \item kolexikografikus: $\{a_1, a_2, ..., a_r\} < \{b_1, b_2, ..., b_r\}$, ha $\exists i: a_i < b_i$ és $\forall j > i: a_j = b_j$.
+
+  Ez egy nagyon hasonló sorozatnak tűnik, az alapján, hogy a definícióban csak egyetlen relációjel iránya különbözik. Pedig valójában ez a sorozat igen eltérően viselkedik a lexikografikushoz képest. Ennek a megértéséhez először nézzük a három elemű kolexikografikus sorrend első pár elemét:
+
+  \[\{123, 124, 134, 234, 125, 135, 235, 145, 245, 345, 126, 136, 236, 146, 246, 346, 156, 256, 356, 456\}\]
+
+ A következő elem generálásához mindig a legbaloldalibb ``számjegyet'' próbáljuk meg növelni, úgy hogy az még kisebb maradjon az utána következő számjegynél. Illetve ha egy számjegyet megnöveltünk akkor a tőle balra lévőket visszaállítjuk a lehető legkisebb értékükre.
+
+ Például az 135-ben a legelső számjegy növelhető, és a legelsőtől balra nincs senki ezért a következő elem a 235 lesz. A 235-ben az első ``számjegy'' már nem növelhető, de a második igen, ezért az megnöveljük négyre, és az első elemet visszaállítjuk egyesre, tehát 145 lesz a következő. Aztán amire eljutottunk a 345-höz már felsoroltuk az $\binom{[5]}{3}$ összes halmazát, ezért be kellett vennünk a 6-os nevű elemet (az utolsó, legnagyobb ``számjegyet'' kell megnövelnünk), hogy új halmazt kapjunk.
 \end{itemize}
