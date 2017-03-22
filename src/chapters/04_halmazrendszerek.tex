@@ -54,11 +54,11 @@ Megjegyzés: A halmazok közötti sorrend értelmezéséhez azt feltételezzük,
 \begin{itemize}
   \item lexikografikus:\hphantom{ko} $\{a_1, a_2, ..., a_r\} < \{b_1, b_2, ..., b_r\}$, ha $\exists i: a_i < b_i$ és $\forall j < i: a_j = b_j$.
 
-  Pl: $\{123, 124, 125, 126, 127, 128, 134, 135, 136, 137, 138, 145, 146, 147, 148, 156, \dots\}$
+  Pl: $123, 124, 125, 126, 127, 128, 134, 135, 136, 137, 138, 145, 146, 147, 148, 156, \dots$
 
   \item kolexikografikus: $\{a_1, a_2, ..., a_r\} < \{b_1, b_2, ..., b_r\}$, ha $\exists i: a_i < b_i$ és $\forall j > i: a_j = b_j$.
 
-  Pl: $\{123, 124, 134, 234, 125, 135, 235, 145, 245, 345, 126, 136, 236, 146, 246, 346, \dots\}$
+  Pl: $123, 124, 134, 234, 125, 135, 235, 145, 245, 345, 126, 136, 236, 146, 246, 346, \dots$
 \end{itemize}
 
 A két sorrend közötti különbség, hogy a sorrendben a következő elem előállításhoz a lexikografikus rendezés a legjobboldali, azaz a legnagyobb elemet fogja növeli (ha az még nem érte el a maximális értékét), míg a kolexikografikus sorrend a legbaloldalibbat változtatja, azaz a legkisebb elemet, amit lehet növelni.
