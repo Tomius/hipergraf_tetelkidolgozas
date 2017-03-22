@@ -1,0 +1,43 @@
+\chapter{Halmazrendszerek és árnyékaik}
+
+\begin{dfn} Egy halmazrendszer árnyéka:
+  $\partial \FF = \{B \in \binom{[n]}{r-1}: \exists F \in \FF, B \subseteq F\}$
+\end{dfn}
+
+Probléma: Ha $\FF \subseteq \binom{[n]}{r}$ és egy fix $m$-re $|\FF|=m$, akkor hogyan kell megválasztani $\FF$ elemeit, hogy $|\partial \FF|$ minimális legyen?
+
+\vspace{1em}
+
+Példa $n=8, r=3$ esetén olyan $\FF$-ekre, ahol $|\partial \FF|$ minimális:
+\begin{itemize}
+  \item $\left\{ \begin{aligned}
+    m &= 2 \\
+    \FF &= \{\{1,2,3\}, \{2,3,4\}\} \\
+    \partial \FF &= \{\{1,2\}, \{2,3\}, \{1,3\}, \{2,4\}, \{3,4\}\}
+  \end{aligned} \right.$
+
+  \item $\left\{ \begin{aligned}
+    m &= 3 \\
+    \FF &= \{\{1,2,3\}, \{2,3,4\}, \{1,2,4\}\} \\
+    \partial \FF &= \{\{1,2\}, \{2,3\}, \{1,3\}, \{2,4\}, \{3,4\}, \{1,4\}\}
+  \end{aligned} \right.$
+
+  \item $\left\{ \begin{aligned}
+    m &= 4 \\
+    \FF &= \{\{1,2,3\}, \{2,3,4\}, \{1,2,4\}, \{1,3,4\}\} \\
+    \partial \FF &= \{\{1,2\}, \{2,3\}, \{1,3\}, \{2,4\}, \{3,4\}, \{1,4\}\}
+  \end{aligned} \right.$
+
+  \item $\left\{ \begin{aligned}
+    m &= 5 \\
+    \FF &= \{\{1,2,3\}, \{2,3,4\}, \{1,2,4\}, \{1,3,4\}, \{1,2,5\}\} \\
+    \partial \FF &= \{\{1,2\}, \{2,3\}, \{1,3\}, \{2,4\}, \{3,4\}, \{1,4\}, \{1,5\}, \{2,5\}\}
+  \end{aligned} \right.$
+
+  \item $\left\{ \begin{aligned}
+    m &= 6 \\
+    \FF &= \{\{1,2,3\}, \{2,3,4\}, \{1,2,4\}, \{1,3,4\}, \{1,2,5\}, \{2,3,5\}\} \\
+    \partial \FF &= \{\{1,2\}, \{2,3\}, \{1,3\}, \{2,4\}, \{3,4\}, \{1,4\}, \{1,5\}, \{2,5\}, \{3,5\}\}
+  \end{aligned} \right.$
+
+\end{itemize}
