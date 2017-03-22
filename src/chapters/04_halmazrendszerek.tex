@@ -46,19 +46,23 @@ Példa $n=8, r=3$ esetén olyan $\FF$-ekre, ahol $|\partial \FF|$ minimális:
   Az előbbi példa alapján kézenfekvőnek tűnik az a sejtés, hogy a $\binom{[n]}{r}$ halmazoknak létezik olyan sorrendje, hogy a sorrend első $m$ elemének az árnyéka minimális. A későbbiekben látni fogjuk, hogy ez a sejtés igaz.
 \end{obs}
 
+Megjegyzés: A halmazok közötti sorrend értelmezéséhez azt feltételezzük, hogy a halmazok elemei egy halmazon belül balról-jobbra növekvő sorrendben vannak rendezve. Tehát például a $\{3, 5, 1\}$ halmazban az elemek belső sorrendjének az $1, 3, 5$ sorozatot értjük.
 
-A $\binom{[n]}{r}$ nevezetes sorrendjei közül kettő:
+\vspace{1em}
+
+\noindent A $\binom{[n]}{r}$ nevezetes sorrendjei közül kettő:
 \begin{itemize}
   \item lexikografikus:\hphantom{ko} $\{a_1, a_2, ..., a_r\} < \{b_1, b_2, ..., b_r\}$, ha $\exists i: a_i < b_i$ és $\forall j < i: a_j = b_j$.
 
-  Ez egy könnyen érhető, gyakorlatban sokszor használt rendezési módszer (pl telefonkönyv). Viszont nyilvánvalóan nem minimalizálja az halmazrendszer árnyékát. Az előző példában szereplő paraméterek esetén $m=3$-ra a lexikografikus sorozat első három elemének, az $\{123, 124, 125\}$ halmaznak már hét elemű az árnyéka, pedig láttuk, hogy lehetséges hat elemű árnyékot generálni.
+  Pl: $\{123, 124, 125, 126, 127, 128, 134, 135, 136, 137, 138, 145, 146, 147, 148, 156, \dots\}$
+
   \item kolexikografikus: $\{a_1, a_2, ..., a_r\} < \{b_1, b_2, ..., b_r\}$, ha $\exists i: a_i < b_i$ és $\forall j > i: a_j = b_j$.
 
-  Ez egy nagyon hasonló sorozatnak tűnik, az alapján, hogy a definícióban csak egyetlen relációjel iránya különbözik. Pedig valójában ez a sorozat igen eltérően viselkedik a lexikografikushoz képest. Ennek a megértéséhez először nézzük a három elemű kolexikografikus sorrend első pár elemét:
-
-  \[\{123, 124, 134, 234, 125, 135, 235, 145, 245, 345, 126, 136, 236, 146, 246, 346, 156, 256, 356, 456\}\]
-
- A következő elem generálásához mindig a legbaloldalibb ``számjegyet'' próbáljuk meg növelni, úgy hogy az még kisebb maradjon az utána következő számjegynél. Illetve ha egy számjegyet megnöveltünk akkor a tőle balra lévőket visszaállítjuk a lehető legkisebb értékükre.
-
- Például az 135-ben a legelső számjegy növelhető, és a legelsőtől balra nincs senki ezért a következő elem a 235 lesz. A 235-ben az első ``számjegy'' már nem növelhető, de a második igen, ezért az megnöveljük négyre, és az első elemet visszaállítjuk egyesre, tehát 145 lesz a következő. Aztán amire eljutottunk a 345-höz már felsoroltuk az $\binom{[5]}{3}$ összes halmazát, ezért be kellett vennünk a 6-os nevű elemet (az utolsó, legnagyobb ``számjegyet'' kell megnövelnünk), hogy új halmazt kapjunk.
+  Pl: $\{123, 124, 134, 234, 125, 135, 235, 145, 245, 345, 126, 136, 236, 146, 246, 346, \dots\}$
 \end{itemize}
+
+A két sorrend közötti különbség, hogy a sorrendben a következő elem előállításhoz a lexikografikus rendezés a legjobboldali, azaz a legnagyobb elemet fogja növeli (ha az még nem érte el a maximális értékét), míg a kolexikografikus sorrend a legbaloldalibbat változtatja, azaz a legkisebb elemet, amit lehet növelni.
+
+Ebből fakadóan például a $\binom{[\infty]}{r}$ halmazok felsorolásánál a lexikografikus sorrend csak az utolsó számjegyet fogja növelni a végtelenségig. Ezzel szemben a kolexikografikus rendezés a $k$ nevű elemet csak akkor veszi be a halmazba, ha a $\binom{[k-1]}{r}$ összes halmazát már felsorolta, tehát már a $k-1$ a legkisebb elem, amit növelni tud új halmaz generáláshoz. Így a kolexikografikus rendezés a $\binom{[\infty]}{r}$ összes halmazát fel tudja sorolni, amit a lexikografikus rendezés nem tud.
+
+A kolexikografikus rendezésnek az a tulajdonsága, hogy a nagy elemeket a ``lehető legkésőbb'' használja csak fel, amikor a kisebb elemekből több halmazt nem tud már generálni, érdekessé teszi ezt a sorozatot az árnyék minimalizálás szempontjából.
