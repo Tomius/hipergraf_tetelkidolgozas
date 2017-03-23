@@ -3,8 +3,8 @@ PROJECTNAME=hipergrafok
 .PHONY: all clean
 
 all:
-	if [ -a out/run2.pid ]; then rm -rf out; fi;
-	if [ -a out/run1.pid ]; then touch out/run2.pid; fi;
+	if [ -f out/run2.pid ]; then rm -rf out; fi;
+	if [ -f out/run1.pid ]; then touch out/run2.pid; fi;
 	mkdir -p out pdf
 	touch out/run1.pid
 
