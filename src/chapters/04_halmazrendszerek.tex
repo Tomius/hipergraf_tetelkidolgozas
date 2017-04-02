@@ -95,6 +95,7 @@ Vagyis $A = \binom{m_j}{j} + \binom{m_{j-1}}{j-1} + \dots + \binom{m_s}{s} < \bi
 Jelölés: \\
 $b^{(r)}(m_r, m_{r-1}, \dots, m_s) = \binom{m_r}{r} + \binom{m_{r-1}}{r-1} + \dots \binom{m_s}{s}$\\
 $\AA \oplus \{a_{i1}, a_{i2}, \dots, a_{ih}\}: \{A \cup \{a_{i1}, a_{i2}, \dots, a_{ih}\}: A \in \AA\} $\\
+$\AA \ominus \{a_{i1}, a_{i2}, \dots, a_{ih}\}: \{A \backslash \{a_{i1}, a_{i2}, \dots, a_{ih}\}: A \in \AA\} $\\
 $B^{(r)}(m_r, m_{r-1}, \dots, m_s) =$ a következő halmazrendszer: \\
 $\binom{[m_r]}{r} \cup \{\binom{[m_{r-1}]}{r-1} \oplus \{m_r + 1\}\} \cup \{\binom{[m_{r-2}]}{r-2} \oplus \{m_r + 1, m_{r-1} + 1\}\} \cup \dots$
 
@@ -112,4 +113,72 @@ $\binom{[m_r]}{r} \cup \{\binom{[m_{r-1}]}{r-1} \oplus \{m_r + 1\}\} \cup \{\bin
   Legyen $r \geq 1$ és $\AA \subseteq \binom{\NN}{r}$. Ekkor $\partial \AA \geq \partial^{(r)}(|\AA|)$, ahol $\partial^{(r)}(m)$ a kolexikografikus első m db r elemű halmaz árnyéka.
 \end{thm}
 
-% Biz: <TODO>
+Biz~\footnote{Egy hasonló, de picivel egyszerűbb bizonyítás: \\ \url{http://www.sciencedirect.com/science/article/pii/0012365X84901936}
+}: Először definiáljuk az alábbi, balra tolásnak (shiftnek) nevezett operátort halmazokra és halmazrendszerekre:
+
+Egy $A \in \binom{\NN}{k}$ halmaz $R_{ij}$ eltoltja:
+\[R_{ij}(A) = \left\{
+\begin{array}{lr}
+  A \backslash \{j\} \cup \{i\}, & \text{ha } i \not \in A, j \in A  \\
+  A, & \text{egyébként}
+\end{array}\right\}\]
+
+Egy $\AA \subseteq \binom{\NN}{k}$ halmazrendszer $R_{ij}$ eltoltja:
+\[ R_{ij}(\AA) = \{R_{ij}(A): A \in \AA\} \cup \{A: R_{ij}(A) \in \AA, A \in \AA\}.\]
+
+Vegyük észre, hogy $|R_{ij}(\AA)| = |\AA|$.
+
+\begin{lem}
+  A $\binom{N}{r}$ árnyéke nem nő a balra tolás által, azaz ha $1 \leq i < j$, akkor $|\partial(R_{ij}(\AA))| \leq |\partial\AA|$.
+\end{lem}
+
+Biz:
+Vegyük észre, hogy a lemma állításával ekvivalensek az alábbi állítások is:
+\begin{itemize}
+  \item $|\partial(R_{ij}(\AA)) \backslash \partial\AA| \leq |\partial\AA \backslash \partial(R_{ij}(\AA))|$, mert ha a lemmában az eltolt halmaz nem nagyobb, akkor mindkét halmazból a közös elemeket kivonva az eltolt halmaz továbbra se lesz nagyobb.
+  \item $|R_{ij}(\partial R_{ij}(\AA)) \backslash \partial\AA| \leq |\partial A \backslash \partial R_{ij}(\AA)|$, mert az előző egyenlőtlenségben a bal oldalra egy újabb eltolás operátort használva a halmaz elemszáma nem változik meg.
+\end{itemize}
+
+Ezeket a megfigyeléseket felhasználva azt fogjuk belátni, hogy
+\[R_{ij}(\partial R_{ij}(\AA)) \backslash \partial\AA \subseteq \partial A \backslash \partial R_{ij}(\AA).\]
+
+W.l.o.g: $i:=1, j:=2$. Jelölés: $C \in \binom{\NN}{r-2}, 1,2 \in C$ és $k \in \NN \backslash \{1, 2\}$, illetve $kC$-nek hívjuk azt a halmazt, hogy $\{k\} \cup C$.
+
+Legyen $B \in R_{21}(\partial R_{12} \backslash \partial \AA)$. Ekkor $1 \not \in B, 2 \in B$, azaz a $B$ halmaz $2C$ alakú. Ekkor vagy $1C \in \partial
+ R_{12}(\AA) \backslash \partial \AA$, tehát $2C \in \partial \AA$, vagy $2C \in \partial R_{12} (\AA) \backslash \partial \AA$. Az utóbbi viszont nem lehet, mert ha a $\partial R_{12} (\AA)$ egyik halmazában szerepel a $2$ elem, akkor az a $\partial \AA$ megfelelő halmazában is szerepelne, tehát a különbségképzés után már nem szerepelne az eredményben. Tehát $B \in \partial \AA$.
+
+Kell még, hogy $B \not \in \partial R_{12}(\AA)$. Ezt úgy mutatjuk meg, hogy belátjuk, ha $B \in \partial R_{12}(\AA)$, akkor $B \not \in R_{21}(\partial R_{12}(\AA) \backslash \partial \AA)$, ami \Lightning. Tegyük fel tehát, hogy $B \in \partial R_{12}(\AA) \Rightarrow 12C \in R_{12}(\AA)$ vagy $2Ck \in R_{12}(\AA)$. Mindkettő ellentmondás, mert: \[\left.
+\begin{array}{l}
+  12C \in R_{12}(\AA) \Rightarrow 12C \in \AA \\
+  2Ck \in R_{12}(\AA) \Rightarrow 1Ck \in \AA
+\end{array}\right\} \Rightarrow 1C \in \partial \AA \Rightarrow 1C \not \in \partial R_{12}(\AA) \backslash \partial \AA, \text{\Lightning.}\]
+
+\QED
+
+A Kruskal-Katona tétel bizonyítása: A lemma alapján feltehető, hogy $\AA$ balra tolt, azaz $\forall 1 \leq i < j$-re $R_{ij}(\AA) = \AA$. Bontsuk $\AA$-t két részre, így:
+\begin{itemize}
+  \item $\AA_0 = \{A \in \AA: 1 \not \in A\}$,
+  \item $\AA_1 = \{A \in \AA: 1 \in A\}$,
+  \item $\AA = \AA_0 \cup \AA_1$.
+\end{itemize}
+
+Ekkor a balra toltság miatt $\partial \AA_0 \subseteq \AA_1 \ominus \{1\}$, illetve $\partial \AA_1 = (\AA_1 \ominus \{1\}) \cup \partial(\AA_1 \ominus \{1\}) \oplus \{1\}$. Alkalmazzunk dupla indukciót $m$-re és $r$-re. A kezdő elemek triviálisan igaz a Kruskal-Katona tétel állítása:
+\begin{itemize}
+  \item $m=1$ és tetszőleges $r$ \checkmark
+  \item $r=1$ és tetszőleges $m$ \checkmark
+\end{itemize}
+
+Indukciós feltevés, hogy $1, 2, \dots, r-1$ és tetszőleges m esetén \checkmark, illetve $m-1$ is \checkmark, $1,2,\dots,r$-re.
+
+\bigbreak
+
+Állítás: $|\AA_1| \geq b^{(r-1)}(m_r-1,\dots, m_s-1)$, ahol $m_r, \dots, m_s$ az m binomiális felírásából származnak, azaz $|\AA| = m =  b^{(r)}(m_r,\dots, m_s)$.
+
+Tegyük fel indirekt, hogy $|\AA_1| < b^{(r-1)}(m_r-1,\dots, m_s-1).$ Ekkor $|\AA_0| = |\AA| - |\AA_1| > b^{(r)}(m_r,\dots, m_s) - b^{(r-1)}(m_r-1,\dots, m_s-1) = b^{(r)}(m_r-1,\dots, m_s-1) \underbrace{\Rightarrow}_{\text{ind. felt.}} |\partial \AA_0| \geq b^{(r-1)}(m_r-1,\dots, m_s-1) > |\AA_1|$, viszont $|\partial \AA_0| < |\AA_1|$, \Lightning, tehát az állítás igaz.
+
+\bigbreak
+
+Mindebből $|\partial \AA| = |\partial \AA_0 \cup \partial \AA_1| = |\partial \AA_1| = |\AA_1| + |\partial(\AA_1 \ominus \{1\})| \underbrace{\geq}_{\text{áll + ind. felt.}} b^{(r-1)}(m_r-1,\dots, m_s-1) + b^{(r-2)}(m_r-1,\dots, m_s-1) =
+b^{(r-1)}(m_r,\dots, m_s) = \partial^{(r)}(m)$.
+
+\QED
