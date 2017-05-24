@@ -1,14 +1,4 @@
-\chapter{A Sperner rendszerek}
-
-A Sperner rendszerek létjogosultságának megértéséhez először tekintsük az alábbi OKTV döntő feladatot 1979-ből:
-
-\begin{task}
-Adott 70 tolmács, akik közül bármely két $A, B$ tolmácsra igaz, hogy $A$ beszél olyan nyelvet, amit $B$ nem. Legkevesebb hány különböző nyelvet beszél a 70 tolmács összesen?
-\end{task}
-
-Empirikus próbálgatással könnyen észrevehetjük, hogy 8 nyelv elég, ugyanis minden tolmácshoz négy különböző nyelvet pontosan $\binom{8}{4} = 70$ féleképpen lehet rendelni.
-
-A Sperner-tétel bizonyítást is ad arra, hogy 8 nyelvet ennél ``okosabban'' nem tudunk szétosztani tolmácsok között, azaz 8 nyelv esetén legfeljebb 70 darab, a feltételnek megfelelő tolmács lehet. Ehhez persze először szükségünk van a probléma formalizációjára, ahol a tolmácsokra mint nyelvek halmazára tekintünk, az összes tolmács egy halmazrendszert alkot, és ennek az elemszámára szeretnénk valamilyen állítást.
+\chapter{Sperner tétel és LYM egyenlőtlenség}
 
 \begin{dfn}
 Egy $\AA \subseteq 2^{[n]}$ \emph{Sperner rendszer}, ha $\forall A, B \in \AA: A \not \subseteq B, B \not \subseteq A$, ha $A \neq B$.
@@ -79,51 +69,3 @@ Hasonlóan, $|x| (n-k+1) \leq |N(x)| \cdot k$, azaz $|N(x)| \geq |x| \frac{n-k+1
 A kapott párosítások felhasználásával adódik a láncokra való felbontás. Mivel egy Sperner rendszerben nem lehet több elem egyetlen láncbók, ha $\AA$ Sperner rendszer, akkor $|\AA| \leq \binom{n}{\lfloor \frac{n}{2} \rfloor}$, azaz a láncfelbontásbeli láncok száma.
 
 \QED
-
-Ez a láncfelbontásra vonatkozó állítás általánosabban is igaz:
-
-\begin{dfn}
-$T$ \emph{részben rendezett halmaz}, ha elemi között értelmezett egy részben rendezett $<$ reláció, ami tranzitív: $a < b, b < c \Rightarrow a < c$, valamint antiszimmetrikus: $a < b, a \not = b \Rightarrow b \not < a$.
-\end{dfn}
-
-\begin{dfn} Egy részben rendezett halmazban \emph{lánc} elemek egy olyan részhalmaza, amelyben tetszőleges két elem relációban áll.
-\end{dfn}
-
-A korábban használt lánc definícióban a reláció a részhalmaz kapcsolat volt.
-
-\begin{dfn} Egy részben rendezett halmazban \emph{antilánc} elemek egy olyan részhalmaza, amelyben semelyik két elem sincs relációban áll.
-\end{dfn}
-
-\begin{thm} Dilworth tétele:
-Ha $T$ egy részben rendezett halmaz és benne a legnagyobb antilánc mérete $k$, akkor $T$ elemei beoszthatóak $k$ db láncba.
-\end{thm}
-
-\begin{dfn} Összehasonlítási gráf:
-<TODO>
-\end{dfn}
-
-\begin{dfn} Perfekt gráf:
-<TODO>
-\end{dfn}
-
-\begin{thm} Perfekt gráf tétel:
-<TODO>
-\end{thm}
-
-\begin{thm}
-  Minden összehasonlítási gráf egyben perfekt is.
-\end{thm}
-
-Biz: <TODO>
-
-\begin{thm} Bollobás egyenlőtlenség:
-  <TODO>
-\end{thm}
-
-Biz: <TODO>
-
-\begin{thm} Ahlswedc-Zhang azonosság:
-  <TODO>
-\end{thm}
-
-Biz: <TODO>
