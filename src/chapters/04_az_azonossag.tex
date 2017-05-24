@@ -1,1 +1,37 @@
 \chapter{Ahlswede-Zhang azonosság}
+
+\begin{thm}
+Legyen $\AA \subseteq 2^{[n]}$ halmazrendszer. Jelölje $W_{\AA}(D)$ minden $D \subseteq [n]$-re a következő számot: $W_{\AA}(D) = \left| \underset{\underset{\text{\scriptsize $A_i \subseteq D$}}{A_i \in \AA}}{\text{
+\huge $\cap$}} A_i \right|$. Ekkor $\sum\limits_{D \subseteq [n]} \frac{W_{\AA}(D)}{|D| \binom{n}{|D|}} = 1$.
+\end{thm}
+
+Ebből a LYM egyenlőtlenség következik:
+Legyen $\AA \in 2^{[n]}$ Sperner rendszer. Ekkor az AZ azonosság szerint:
+\[ 1 = \sum\limits_{D \subseteq [n]} \frac{W_{\AA}(D)}{|D| \binom{n}{|D|}} = \sum\limits_{D \in \AA} \frac{W_{\AA}(D)}{|D| \binom{n}{|D|}} + \sum\limits_{D \not \in \AA} \frac{W_{\AA}(D)}{|D| \binom{n}{|D|}} \geq \sum\limits_{D \in \AA} \frac{W_{\AA}(D)}{|D| \binom{n}{|D|}} \underbrace{=}_{*} \sum\limits_{D \in \AA} \frac{1}{\binom{n}{|D|}} = \sum\limits_{k=1}^n \frac{f_k}{\binom{n}{k}} \]
+
+*: $W_\AA(D) = |D|$, mert ha $D \in \AA$ és $\AA$ Sperner rendszer, akkor csak $D$ maga lesz olyan $A_i \in \AA$, amire $A_i \subseteq D$.
+
+\QED
+
+Az AZ azonosság bizonyítása:
+Legyen $U(\AA)$ az a halmazrendszer, aminek a halmazai mindazon $U \subseteq [n]$, amik tartalmaznak $\AA$-beli halmazt. $U(\AA) = \{U \subseteq [n]: \exists A \in \AA, A \subseteq U\}$.
+
+Azt mondjuk, hogy egy $\sigma \in S_n$ permutáció az $s \subseteq [n]$ halmaznál ``lép ki'' $U(\AA)$-ból, ha $S=\{\sigma(1), \dots, \sigma(|s|)\}, s \in U(\AA)$ és $(s \backslash \sigma(|s|)) \not \in U(\AA)$.
+
+Összeszámoljuk az $(s, \sigma)$ párokat, amire $\sigma$ éppen $s$-nél lép ki $U(\AA)$-ból. Mivel $\forall \sigma$ permutáció kilép valahol, pontosan egy jól meghatározott $s$-nél $U(\AA)$-ból, ezen párok száma pontosan $n!$. Másrészt egy rögzített $s \subseteq [n]$ részhalmaznál $U(\AA)$-ból kilépő permutációk száma:
+
+\[\underbrace{(|s|-1)!}_{1.} \cdot \underbrace{W_{\AA}(s)}_{2.} \cdot \underbrace{(n-|s|)!}_{3.}\]
+
+\begin{enumerate}
+  \item $s$ elemeinek belső sorrendje.
+  \item A metszetből kell elhagyni egy elemet, hogy ne legyünk $U(\AA)$-ban, ami $W_{\AA}(s)$ féle lehet.
+  \item Az $s$-en kívüli elemek belső sorrendje.
+\end{enumerate}
+
+\[ \sum\limits_{s \subseteq [n]} (|s|-1)! \cdot W_{\AA}(s) \cdot (n-|s|)! = n!\]
+
+Amit $n!$-al leosztva, azt kapjuk, hogy:
+
+\[\sum\limits_{s \subseteq [n]} \frac{W_{\AA}(s)}{\frac{n!}{(|s|-1)!\cdot(n-|s|)!}} = 1 \hspace{3em} \Rightarrow \hspace{3em} \sum\limits_{s \subseteq [n]} \frac{W_{\AA}(s)}{|s|\binom{n}{|s|}} = 1\]
+
+\QED

@@ -1,5 +1,5 @@
-Gráfok, hipergráfok és alkalmazásaik jegyzet
+Gráfok, hipergráfok és alkalmazásaik tételkidolgozás
 ============================================
 
 Ha a LaTeX kódot nem sikerül lefordítanod, innen letöltheted a pdf-et:
-* [Jegyzet PDF letöltése](https://www.dropbox.com/s/ruj5r35vw6lwmq4/hipergrafok.pdf?dl=0) (Nem garantált, hogy a legfrissebb verzió)
+* [Jegyzet PDF letöltése](https://www.dropbox.com/s/1py0jhynhgle36h/hipergraf_tetelkidolgozas.pdf?dl=0) (Nem garantált, hogy a legfrissebb verzió)

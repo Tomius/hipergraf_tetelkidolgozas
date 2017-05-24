@@ -1,4 +1,4 @@
-PROJECTNAME=hipergrafok
+PROJECTNAME=hipergraf_tetelkidolgozas
 
 .PHONY: all clean
 

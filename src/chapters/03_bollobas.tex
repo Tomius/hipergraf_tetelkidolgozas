@@ -1,1 +1,32 @@
 \chapter{Bollobás egyenlőtlenség}
+
+\begin{thm}
+Legyenek $(A, B), \dots, (A_m, B_m)$ olyan halmazpárok, amikre $\forall i$-re $A_i, B_i$ véges és $\forall i: A_i \cap B_i = \emptyset$ és $\forall i,j: j \not = i$-re $A_i \cap B_j \not = \emptyset$.
+
+Ekkor $\sum_{i=1}^m \frac{1}{\binom{|A_i| + |B_i|}{|A_i|}} \leq 1$.
+\end{thm}
+
+Ebből következik a LYM egyenlőtlenség: Legyen $\AA$ Sperner rendszer az $[n]$ halmazon, ahol $A_1, \dots, A_m$ legyenek $\AA$ elemei és $B_i := [n] \backslash A_i$. Ekkor ezekre az $(A_i, B_i)$ párokra teljesül a Bollobás tulajdonság.
+
+Ez pedig azt adja, hogy $\sum_{i=1}^m \frac{1}{\binom{n}{|A_i|}} \leq 1 \Rightarrow$ LYM.
+
+\QED
+
+A Bollobás egyenlőtlenség bizonyítása:
+Dupla leszámlálást végzünk, az alábbi párokat számoljuk:
+$(A_i, B_i)$ és $\sigma \in S_n$ (ahol $n$ az alaphalmaz elemszáma, $S_n$ pedig az $n$ elemű permutációk halmaza) párt alkot, ha a $\sigma$ permutációban $A_i$ minden eleme megelőzi $B_i$ minden elemét. Pl: $A_i = \{2,4,7\}, B_i =\{3,5,6\}, \sigma=4,2,8,1,7,9,5,10,6,3$.
+
+Rögzített $\sigma$-hoz csak egy olyan $(A_i, B_i)$ lehet egy Bollobás rendszerben, amelyik párt alkot vele. Mert ha $(A_j, B_j)$ is párja volna $\sigma$-nak, akkor $A_i \cap B_j \not = \emptyset$ és $A_j \cap B_i \not = \emptyset$ miatt, ha $\sigma$-ban $A_i$ minden eleme megelőzi $B_i$ minden elemét, akkor $A_i$-nek $B_j$-vel közös eleme is megelőzi $B_i$-nek $A_j$-vel közös elemét, azaz $B_j$ egy eleme megelőzi $A_j$ egy elemét \Lightning.
+
+Rögzített $(A_i, B_i)$-hez a vele párt alkotó $\sigma$ permutációk száma:
+
+\[\underbrace{\binom{n}{|A_i| + |B_i|}}_{\text{Azon pozíciók, ahol $A_i \cup B_i$ valamely}}\underbrace{|A_i|!|B_i|!(n-|A_i|-|B_i|)!}_{\text{Egy adott osztályba tartozó elemek belső sorrendje}}\]
+
+Tehát
+
+\[\underbrace{\sum_{i=1}^{m} \binom{n}{|A_i| + |B_i|} |A_i|!|B_i|!(n-|A_i|-|B_i|)!}_{\text{a számolt párok száma}} \leq n! \cdot 1 = n!\]
+
+Az egyenlőtlenség mindkét oldalát leosztva $n!$-al:
+\[\sum_{i=1}^{m} \frac{\text{\sout{$n!$}}}{(|A_i| + |B_i|)! \text{\sout{$(n -|A_i|-|B_i|)!$}}} |A_i|!|B_i|!\text{\sout{$(n-|A_i|-|B_i|)!$}} \cdot \frac{1}{\text{\sout{$n!$}}} = \sum_{i=1}^m\frac{1}{\binom{|A_i| + |B_i|}{|A_i|}} \leq 1\]
+
+\QED
