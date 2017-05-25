@@ -1,24 +1,24 @@
 \chapter{Baranyai tétele}
 
-\begin{dfn}
-  A $\GG$ gráfban egy $\HH$ részgráfot \emph{k-faktor}nak nevezünk, ha $\HH$ k-reguláris (vagyis $\HH$ minden csúcsának k a fokszáma) és feszítő részgráf ($\HH$ tartalmazza $\GG$ összes csúcsát).
-\end{dfn}
+% \begin{dfn}
+%   A $\GG$ gráfban egy $\HH$ részgráfot \emph{k-faktor}nak nevezünk, ha $\HH$ k-reguláris (vagyis $\HH$ minden csúcsának k a fokszáma) és feszítő részgráf ($\HH$ tartalmazza $\GG$ összes csúcsát).
+% \end{dfn}
 
-A teljes párosítás egy 1-faktor.
+% A teljes párosítás egy 1-faktor.
 
-\begin{dfn}
-  Egy gráf éleinek particíóját k-faktorokba \emph{k-faktorizációnak nevezzük}. Ha egy gráfnak létezik \emph{k-faktorizációja}, akkor azt mondjuk, hogy \emph{k-faktorizálható}.
-\end{dfn}
+% \begin{dfn}
+%   Egy gráf éleinek particíóját k-faktorokba \emph{k-faktorizációnak nevezzük}. Ha egy gráfnak létezik \emph{k-faktorizációja}, akkor azt mondjuk, hogy \emph{k-faktorizálható}.
+% \end{dfn}
 
-Az 1-faktorizációnak fontos szerepe van például sakkversenyek szervezésekor. Ha egy gráfban a csúcspontok a versenyzőket, az élek pedig lebonyolítandó játszmákat jelölik, akkor egy ilyen gráfnak az 1-faktorizációja egy olyan összeállítást ad meg, ahol egy faktor egy fordulónak felel meg, minden fordulóban minden játékos játszik, és semelyik pár sem játszik többször egymás ellen.
+% Az 1-faktorizációnak fontos szerepe van például sakkversenyek szervezésekor. Ha egy gráfban a csúcspontok a versenyzőket, az élek pedig lebonyolítandó játszmákat jelölik, akkor egy ilyen gráfnak az 1-faktorizációja egy olyan összeállítást ad meg, ahol egy faktor egy fordulónak felel meg, minden fordulóban minden játékos játszik, és semelyik pár sem játszik többször egymás ellen.
 
-\begin{thm}
-  Tetszőleges pozitív, páros $n$-re a $K_{n}$, az $n$-csúcsú teljes gráf 1-faktorizálható.
-\end{thm}
+% \begin{thm}
+%   Tetszőleges pozitív, páros $n$-re a $K_{n}$, az $n$-csúcsú teljes gráf 1-faktorizálható.
+% \end{thm}
 
-A tétel legegyszerűbb bizonyítása a következő: $i = 1 , 2 , \dots , n - 1$ esetén az $i$-edik faktor álljon a $(0,~i)$ élből és az $(i-j , i+j) (mod~n - 1)$ élekből, ahol $j = 1 , 2 , \dots , \frac{n}{2} - 1$. A $K_8$ gráf esetén ez a konstrukció \aref{fig:faktorizacio}. ábrán látható.
+% A tétel legegyszerűbb bizonyítása a következő: $i = 1 , 2 , \dots , n - 1$ esetén az $i$-edik faktor álljon a $(0,~i)$ élből és az $(i-j , i+j) (mod~n - 1)$ élekből, ahol $j = 1 , 2 , \dots , \frac{n}{2} - 1$. A $K_8$ gráf esetén ez a konstrukció \aref{fig:faktorizacio}. ábrán látható.
 
-\includefigure[width=\textwidth]{faktorizacio}{A $K_8$ egy lehetséges egy faktorizációja}
+% \includefigure[width=\textwidth]{faktorizacio}{A $K_8$ egy lehetséges egy faktorizációja}
 
 \begin{thm} Baranyai-tétel:
   Minden $r|n$ viszonyt teljesítő $r,n$ párosra a $K^{r}_{n}$, az $r$-uniform $n$-csúcsú teljes hipergráf 1-faktorizálható.

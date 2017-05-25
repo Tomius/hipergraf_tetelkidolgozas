@@ -1,0 +1,17 @@
+\chapter{Erdős-Ko-Rado tétel}
+
+\begin{thm}
+  Ha $k < \frac{n}{2}, \FF \subseteq \binom{[n]}{k}$ és $\FF$ metsző rendszer, azaz $\forall A, B \in \FF A \cap B \not = \emptyset$, akkor $|\FF| \leq \binom{n-1}{k-1}$
+\end{thm}
+
+Megjegyzés: ez elérhető, $\FF := \{A \in \binom{[n]}{k}: i \in \AA, \text{valami fix $i$-re}\}$, és az is igaz, hogy $\binom{n-1}{k-1}$ sehogy máshogy nem érhető el.
+
+Bizonyítás (Daykin):
+Tegyük fel, hogy $\FF$ az állításnak megfelelő halmazrendszer. $B := \{\overline{A} =[n] \backslash A: A \in \FF\}$. Tehát $B \subseteq \binom{[n]}{n-k}$ és $|B| = |\FF|$. Tegyük fel indirekt, hogy $|\FF| > \binom{n-1}{k-1} = \binom{n-1}{n-k} \Rightarrow |B| > \binom{n-1}{n-k} \underbrace{\Rightarrow}_{\text{KK tétel}} |\partial B| \underbrace{>}_{\text{észrevétel}} \binom{n-1}{n-k-1} \Rightarrow \partial(\partial B) = \partial^{(2)}B \geq \binom{n-1}{n-k-2} \geq \dots \geq |\partial^{(n-2k)} B| \geq \binom{n-1}{(n-k)-(n-2k)} = \binom{n-1}{k}$.
+
+Vegyük észre viszont, hogy $\FF \cap \partial^{(n-2k)} B = \emptyset$. Ugyanis ha $D \in \partial^{n-2k} B$, akkor $\exists H \in \FF$, hogy $D \subseteq \overline{H}$ és ekkor $D \cap H \not = \emptyset$, tehát $D \not \in \FF$, hiszen $\FF$ tetszőleges két eleme metszi egymást. De akkor $\underbrace{|\FF| + |\partial^{(n-2k)}B|}_{x} \leq \binom{n}{k}$, illetve $\underbrace{\binom{n-1}{k-1}}_{< |\FF|} + \underbrace{\binom{n-1}{k}}_{\leq |\partial^{(n-2k)}B|} = \binom{n}{k}$, vagyis $x \leq \binom{n}{k}$ és $x > \binom{n}{k}$ \Lightning.
+
+Tehát $|F| = \binom{n-1}{k-1}$ és $|\partial^{(n-2k)}B| = \binom{n-1}{k}$. A KK egyenlőségre vonatkozó állításából és a $|B| = \binom{n-1}{n-k}$ feltételből adódok a megjegyzés állítása is.
+
+Bizonyítás (Katona):
+TODO
