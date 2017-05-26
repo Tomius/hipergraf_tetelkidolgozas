@@ -1,0 +1,15 @@
+\chapter{Listaszínezés. A $ch(\GG)$ paraméter viszonya a kromatikus számhoz. Dinitz probléma, Galvin tétele.}
+
+\begin{dfn}
+  A \emph{listaszínezés} alatt azt a problémát értjük, hogy egy gráf $\forall v$ csúcsához hozzárendelünk egy $L(v)$ színek listáját, és arra vagyunk kíváncsiak, hogy létezik-e ennek a gráfnak olyan színezése, hogy $\forall v$-re $v$ színe $c(v) \in L(v)$ (és $uv \in E \Rightarrow c(u) \not = c(v)$).
+\end{dfn}
+
+\begin{dfn}
+  A $\GG$ gráf $ch(\GG)$-vel jelölt listakromatikus száma vagy listaszínezési száma az a legkisebb $k$ pozitív egész szám, amire fennáll, hogy akárhogyan adunk meg a csúcsokhoz olyan $L(v)$ listákat, amikre $L(v)\geq k$ teljesül, $\GG$ színezhető lesz az adott listákról.
+\end{dfn}
+
+\begin{thm}
+  $\forall \GG$ gráfra $ch(\GG) \geq \chi(\GG)$.
+\end{thm}
+
+Bizonyítás: Ha minden lista azonos, az éppen azt jelenti, hogy $\GG$ színezhető annyi színnel, amennyi a listákon szerepel. Ebből adódik, hogy egyforma listák esetén a listaméret legalább $\chi (\GG)$ legyen ahhoz, hogy a gráf színezhető legyen az adott listákról.
