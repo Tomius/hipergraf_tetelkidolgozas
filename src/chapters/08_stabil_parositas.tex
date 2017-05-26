@@ -2,7 +2,11 @@
 
 Legyen adott egy $V$ csúcshalmaz, és $\forall x, y \in V$-re egy $f(x, y) = k$ függvény (preferencia lista), ahol $k$ nem negatív szám, és azt adja meg, hogy az $x$ csúcs ``mennyire preferálja'' az $xy$ élet (ha ez nulla, akkor $xy$ él nem választható be a párosításba).
 
+\medskip
+
 Egy $V$ feletti párosítás esetén $\forall x \in V$-re definiáljunk egy $g(x)$ értéket, ami azt adja meg, hogy $x$ mennyire ``örül'' a jelenlegi párjának, vagyis ha a párosításban $xy$ él, akkor $g(x) = f(x, y)$, ha $x$-ből nem megy él, akkor pedig $g(x) = 0$.
+
+\medskip
 
 Egy párosítás \emph{instabil}, ha $\exists x,y: f(x,y) > g(x)$ és $f(y, x) > g(y)$, azaz létezik olyan, a párosításban nem szereplő él, amit mindkét végpont jobban preferálna, mint a párosításbeli éleiket. Ha egy párosítás nem instabil, akkor azt mondjuk rá, hogy az egy \emph{stabil párosítás}.
 
@@ -24,4 +28,7 @@ Algoritmus:
   \item Az elutasított fiúk új ajánlatokat tesznek. Ha mindnek üres a listája, akkor az algoritmus leáll, és az el nem utasított (várakozó) kérések alkotják a párosítást.
 \end{itemize}
 
-Állítás: Az algoritmus eredményeként nem jöhet létre instabil élt tartalmazó párosítás. Ha ugyanis $f$ és $l$ között lenne ilyen él, akkor $f$ hamarabb küldött volna ajánlatot $l$-nek, mint a jelenlegi párjának, és $l$ ezt nem utasította vissza, mert $f$-en kívül, csak számára az $f$-nél kevésbé preferált fiúk tettek neki ajánlatot, hiszen $f$-et jobban preferálja, mint a jelenlegi párját.
+\begin{prop}
+  Az algoritmus eredményeként nem jöhet létre instabil élt tartalmazó párosítás.
+\end{prop}
+Ha ugyanis $f$ és $l$ között lenne ilyen él, akkor $f$ hamarabb küldött volna ajánlatot $l$-nek, mint a jelenlegi párjának, és $l$ ezt nem utasította vissza, mert $f$-en kívül, csak számára az $f$-nél kevésbé preferált fiúk tettek neki ajánlatot, hiszen $f$-et jobban preferálja, mint a jelenlegi párját.

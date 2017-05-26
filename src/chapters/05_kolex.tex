@@ -63,7 +63,11 @@ Megjegyzés: A halmazok közötti sorrend értelmezéséhez azt feltételezzük,
 
 A két sorrend közötti különbség, hogy a sorrendben a következő elem előállításhoz a lexikografikus rendezés a legjobboldali, azaz a legnagyobb elemet fogja növeli (ha az még nem érte el a maximális értékét), míg a kolexikografikus sorrend a legbaloldalibbat változtatja, azaz a legkisebb elemet, amit lehet növelni.
 
+\medskip
+
 Ebből fakadóan például a $\binom{[\infty]}{r}$ halmazok felsorolásánál a lexikografikus sorrend csak az utolsó számjegyet fogja növelni a végtelenségig. Ezzel szemben a kolexikografikus rendezés a $k$ nevű elemet csak akkor veszi be a halmazba, ha a $\binom{[k-1]}{r}$ összes halmazát már felsorolta, tehát már a $k-1$ a legkisebb elem, amit növelni tud új halmaz generáláshoz. Így a kolexikografikus rendezés a $\binom{[\infty]}{r}$ összes halmazát fel tudja sorolni, amit a lexikografikus rendezés erre nem képes.
+
+\medskip
 
 A kolexikografikus rendezésnek az a tulajdonsága, hogy a nagy elemeket a ``lehető legkésőbb'' használja csak fel, amikor a kisebb elemekből több halmazt nem tud már generálni, érdekessé teszi ezt a sorozatot az árnyék minimalizálás szempontjából.
 
@@ -82,28 +86,37 @@ A kolexikografikus rendezésnek az a tulajdonsága, hogy a nagy elemeket a ``leh
 
 Végül elérünk $d_s = 0$-hoz, hiszen ha $s=1$, akkor minden $d_s = m_s$ szám felírható $\binom{m_s}{s} = \binom{m_s}{1} = m_s$ alakban. Így kapunk egy felírást $m = \binom{m_r}{r} + \dots + \binom{m_s}{s}$ alakban, kell még, hogy erre $m_r > \dots > m_s$ teljesül.
 
+\bigskip
+
 Tegyük fel, hogy valamely j-re $m_j \geq m_{j+1}$. Ekkor $\binom{m_j}{j} \geq \binom{m_{j+1}}{j}$, ami átrendezhető arra az alakra, hogy $\underbrace{\binom{m_{j+1}}{j+1} + \binom{m_j}{j}}_{\geq d_{j+2}} \geq \binom{m_{j+1}}{j+1} + \binom{m_{j+1}}{j} = \binom{m_{j+1} + 1}{j+1}$ \Lightning. Ez azért ellentmondás, mert így $\binom{m_{j+1}+1}{j+1} \leq d_{j+2}$ miatt $m_{j+1}$ helyett választhattuk volna $(m_{j+1} + 1)$-et is. Tehát $m_r > \dots > m_s$ teljesül, a felírás létezik.
+
+\bigskip
 
 Kell még, hogy a felírás egyértelmű. Indirekt tegyük fel, hogy nem az, vagyis $\exists$ két ilyen felírása egy $m$ számnak: $m = \binom{m_r}{r} + \dots + \binom{m_s}{s}$, ahol $m_r > \dots > m_s$ és $m = \binom{m_r'}{r} + \dots + \binom{m_s}{s}$, ahol $m_r' > \dots > m_s'$. Legyen $j$ a legnagyobb index, amire $m_j = m_j'$. Vagyis $d_{j+1}$-nek van két felírása, ahol az első tagok különböznek: $\binom{m_j}{j} + \binom{m_{j-1}}{j-1} + \dots + \binom{m_s}{s} = \overbrace{m - \binom{m_r}{r} - \dots - \binom{m_{j+1}}{j+1}}^{d_{j+1}} = m - \binom{m_r'}{r} - \dots - \binom{m_{j+1}''}{j+1} = \underbrace{\binom{m_j'}{j} + \binom{m_{j-1}'}{j-1} + \dots + \binom{m_s'}{s}}_{A}$.
 
+\bigskip
+
 WLOG (Without Loss Of Generality) tegyük fel, hogy $m_j > m_j'$. Ekkor $m_j' \leq m_j-1$, vagyis $A \leq \underbrace{\binom{m_j-1}{j} + \binom{m_j-2}{j-1} + \dots + \binom{m_j-j}{1}}_{B} < 1+B = \\ = \underbrace{1 + \binom{m_j-j}{1}}_{\binom{m_j-(j-1)}{1}} + \binom{m_j-(j-1)}{2} + \dots + \binom{m_j-1}{j} = \underbrace{\binom{m_j-(j-1)}{1} + \binom{m_j-(j-1)}{2}}_{\binom{m_j-(j-2)}{2}} + \dots + \binom{m_j-1}{j} = \binom{m_j}{j}$.
+
+\bigskip
 
 Vagyis $A = \binom{m_j}{j} + \binom{m_{j-1}}{j-1} + \dots + \binom{m_s}{s} < \binom{m_j}{j}$, ami ellentmondás \Lightning. Tehát a felírás egyértelmű.
 
 \QED
 
-Jelölés: \\
-$b^{(r)}(m_r, m_{r-1}, \dots, m_s) = \binom{m_r}{r} + \binom{m_{r-1}}{r-1} + \dots \binom{m_s}{s}$\\
-$\AA \oplus \{a_{i1}, a_{i2}, \dots, a_{ih}\}: \{A \cup \{a_{i1}, a_{i2}, \dots, a_{ih}\}: A \in \AA\} $\\
-$\AA \ominus \{a_{i1}, a_{i2}, \dots, a_{ih}\}: \{A \backslash \{a_{i1}, a_{i2}, \dots, a_{ih}\}: A \in \AA\} $\\
-$B^{(r)}(m_r, m_{r-1}, \dots, m_s) =$ a következő halmazrendszer: \\
-$\binom{[m_r]}{r} \cup \{\binom{[m_{r-1}]}{r-1} \oplus \{m_r + 1\}\} \cup \{\binom{[m_{r-2}]}{r-2} \oplus \{m_r + 1, m_{r-1} + 1\}\} \cup \dots$
+\begin{notation} \hspace{1em} \newline
+  $b^{(r)}(m_r, m_{r-1}, \dots, m_s) = \binom{m_r}{r} + \binom{m_{r-1}}{r-1} + \dots \binom{m_s}{s}$\\
+  $\AA \oplus \{a_{i1}, a_{i2}, \dots, a_{ih}\}: \{A \cup \{a_{i1}, a_{i2}, \dots, a_{ih}\}: A \in \AA\} $\\
+  $\AA \ominus \{a_{i1}, a_{i2}, \dots, a_{ih}\}: \{A \backslash \{a_{i1}, a_{i2}, \dots, a_{ih}\}: A \in \AA\} $\\
+  $B^{(r)}(m_r, m_{r-1}, \dots, m_s) =$ a következő halmazrendszer: \\
+  $\binom{[m_r]}{r} \cup \{\binom{[m_{r-1}]}{r-1} \oplus \{m_r + 1\}\} \cup \{\binom{[m_{r-2}]}{r-2} \oplus \{m_r + 1, m_{r-1} + 1\}\} \cup \dots$
+\end{notation}
 
 \bigbreak
 
 Észrevételek:
 \begin{itemize}
-\item A $B^{(r)}(m_r, m_{r-1}, \dots, m_s)$ az első $b^{(r)}(m_r, m_{r-1}, \dots, m_s)$ db $r$ elemű részhalmaza $\NN$-nek a kolexikografikus rendezés szerint.
-\item $b^{(r)}(m_r, m_{r-1}, \dots, m_s) = b^{(r)}(m_r-1, m_{r-1}-1, \dots, m_s-1) + b^{(r-1)}(m_r-1, m_{r-1}-1, \dots, m_s-1)$. Ez egyszerűen abból következik, hogy minden $j$-re $\binom{m_j}{j} = \binom{m_j-1}{j} + \binom{m_j-1}{j-1}$
-\item $\partial B^{(r)}(m_r, \dots, m_s) = B^{(r-1)}(m_r, \dots, m_s)$
+  \item A $B^{(r)}(m_r, m_{r-1}, \dots, m_s)$ az első $b^{(r)}(m_r, m_{r-1}, \dots, m_s)$ db $r$ elemű részhalmaza $\NN$-nek a kolexikografikus rendezés szerint.
+  \item $b^{(r)}(m_r, m_{r-1}, \dots, m_s) = b^{(r)}(m_r-1, m_{r-1}-1, \dots, m_s-1) + b^{(r-1)}(m_r-1, m_{r-1}-1, \dots, m_s-1)$. Ez egyszerűen abból következik, hogy minden $j$-re $\binom{m_j}{j} = \binom{m_j-1}{j} + \binom{m_j-1}{j-1}$
+  \item $\partial B^{(r)}(m_r, \dots, m_s) = B^{(r-1)}(m_r, \dots, m_s)$
 \end{itemize}

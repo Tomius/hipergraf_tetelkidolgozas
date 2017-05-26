@@ -13,15 +13,19 @@ Tegyük fel, hogy $\FF$ az állításnak megfelelő halmazrendszer. $B := \{\ove
 
 Vegyük észre viszont, hogy $\FF \cap \partial^{(n-2k)} B = \emptyset$. Ugyanis ha $D \in \partial^{n-2k} B$, akkor $\exists H \in \FF$, hogy $D \subseteq \overline{H}$ és ekkor $D \cap H \not = \emptyset$, tehát $D \not \in \FF$, hiszen $\FF$ tetszőleges két eleme metszi egymást. De akkor $\underbrace{|\FF| + |\partial^{(n-2k)}B|}_{x} \leq \binom{n}{k}$, illetve $\underbrace{\binom{n-1}{k-1}}_{< |\FF|} + \underbrace{\binom{n-1}{k}}_{\leq |\partial^{(n-2k)}B|} = \binom{n}{k}$, vagyis $x \leq \binom{n}{k}$ és $x > \binom{n}{k}$ \Lightning.
 
+\medskip
+
 Tehát $|F| = \binom{n-1}{k-1}$ és $|\partial^{(n-2k)}B| = \binom{n-1}{k}$. A KK egyenlőségre vonatkozó állításából és a $|B| = \binom{n-1}{n-k}$ feltételből adódok a megjegyzés állítása is.
 
 \bigskip
 
 \textbf{Bizonyítás (Katona):}
-Dupla leszámlálással. Párok $(\AA, \sigma): \AA \in \FF, \sigma$ egy ``körpermutáció'', amiben $\AA$ elemei egymás mellett vannak (``ívet alkotnak'').
+Dupla leszámlálással. Párok $(\AA, \sigma): \AA \in \FF, \sigma$ egy ``körpermutáció'', amiben $\AA$ elemei egymás mellett vannak (``ívet alkotnak''). Az ilyen párok száma: Rögzített $\AA \in \FF$-hez tartozó $\sigma$-k száma: $k!(n-k)!$. Vagyis a párok száma $|\FF|k!(n-k)!$.
 
-Az ilyen párok száma: Rögzített $\AA \in \FF$-hez tartozó $\sigma$-k száma: $k!(n-k)!$. Vagyis a párok száma $|\FF|k!(n-k)!$.
+\medskip
 
 Egy $\sigma$ körpermutációhoz tartozó $\AA \in \FF$ halmazok száma $\leq k$. Mert egy határoló pontból a körön a $k < \frac{n}{2}$ miatt csak egy irányba indulhat ív, ha pedig egy $\AA \in \FF$ már ív, akkor minden más ív egyik határolópontja az az belüli $k-1$ lehetséges határolópont egyike.
+
+\medskip
 
 Vagyis a párok száma $\leq (n-k)! \cdot k$. Azaz $|\FF|k!(n-k)! \leq (n-k)! \cdot k \Rightarrow |\FF| \leq \frac{(n-1)!}{(n-k)!(k-1)!} = \binom{n-1}{k-1}$

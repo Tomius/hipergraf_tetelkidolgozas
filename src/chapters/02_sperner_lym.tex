@@ -1,18 +1,22 @@
 \chapter{Sperner tétel és LYM egyenlőtlenség}
 
 \begin{dfn}
-Egy $\AA \subseteq 2^{[n]}$ \emph{Sperner rendszer}, ha $\forall A, B \in \AA: A \not \subseteq B, B \not \subseteq A$, ha $A \neq B$.
+  Egy $\AA \subseteq 2^{[n]}$ \emph{Sperner rendszer}, ha $\forall A, B \in \AA: A \not \subseteq B, B \not \subseteq A$, ha $A \neq B$.
 \end{dfn}
 
 \begin{thm} Sperner-tétel:
-Ha $\AA$ egy Sperner rendszer, akkor $|\AA| \leq \binom{n}{\lfloor \frac{n}{2} \rfloor}$
+  Ha $\AA$ egy Sperner rendszer, akkor $|\AA| \leq \binom{n}{\lfloor \frac{n}{2} \rfloor}$
 \end{thm}
 
 Bizonyítás (dupla leszámlálással):
 
-(Jelölés: $S_n$ jelentse az n elemű szimmetrikus csoportot, azaz az első n elem permutációját.)
+\begin{notation}
+  $S_n$ jelentse az n elemű szimmetrikus csoportot, azaz az első n elem permutációját.
+\end{notation}
 
 Tekintsük az olyan $(A, \sigma)$ párokat, ahol $A \in \AA$ és $\sigma \in S_n$, $\sigma = \sigma(1)\sigma(2) \dots \sigma(n)$ és $A = \sigma(1)\sigma(2) \dots \sigma(k)$, valamely k-ra (k=|A|). Azaz az $A$ ``párja'' $\sigma$-nak azt jelenti, hogy az $A$ eleminek létezik olyan sorrendje, hogy az így kapott sorozat prefixe a $\sigma$-nak. Az ilyen párok halmazát jelöljük $T$-vel.
+
+\medskip
 
 Egyrészt rögzített $\sigma \in S_n$-re legfeljebb egy $A \in \AA$ lehet, ami az ő párja, mert ha több is lenne, akkor azok tartalmaznák egymást, ami a Sperner-rendszer feltétele miatt ellentmondás. Emiatt $T$-nek legfeljebb annyi eleme lehet, ahány különböző értéket a $\sigma$ felvehet:
 \[|T| \leq |S_n| = n!.\]
@@ -22,15 +26,15 @@ Másrészt rögzített $A \in \AA$ esetén a hozzá párba állítható $\sigma$
 
 T elemszámára két összefüggést kaptunk, ezeket összevetve:
 \begin{align}
-|\AA| \lfloor \frac{n}{2} \rfloor ! \lceil \frac{n}{2} \rceil ! &\leq |T| \leq n! \\
-|\AA| &\leq \frac{n!}{\lfloor \frac{n}{2} \rfloor ! \lceil \frac{n}{2} \rceil !}\\
-|\AA| &\leq \binom{n}{\lfloor \frac{n}{2} \rfloor}.
+  |\AA| \lfloor \frac{n}{2} \rfloor ! \lceil \frac{n}{2} \rceil ! &\leq |T| \leq n! \\
+  |\AA| &\leq \frac{n!}{\lfloor \frac{n}{2} \rfloor ! \lceil \frac{n}{2} \rceil !}\\
+  |\AA| &\leq \binom{n}{\lfloor \frac{n}{2} \rfloor}.
 \end{align}
 
 \QED
 
 \begin{thm} LYM-tétel:
-Ha $\AA \subseteq 2^{[n]}$ Sperner rendszer és $f_k$ jelöli minden $k$-ra az $\AA$-ban lévő pontosan $k$ elemű halmazok számát, akkor $\sum_{k=0}^{n} \frac{f_k}{\binom{n}{k}} \leq 1$
+  Ha $\AA \subseteq 2^{[n]}$ Sperner rendszer és $f_k$ jelöli minden $k$-ra az $\AA$-ban lévő pontosan $k$ elemű halmazok számát, akkor $\sum_{k=0}^{n} \frac{f_k}{\binom{n}{k}} \leq 1$
 \end{thm}
 
 Biz (előző alapján):
@@ -46,7 +50,7 @@ Biz (előző alapján):
 \QED
 
 \begin{dfn} Lánc:
-$L \subseteq 2^{[n]}$, amire $B, B' \in L \Rightarrow B \subseteq B'$ vagy $B' \subseteq B$
+  $L \subseteq 2^{[n]}$, amire $B, B' \in L \Rightarrow B \subseteq B'$ vagy $B' \subseteq B$
 \end{dfn}
 
 Sperner-tétel másik bizonyítása:
@@ -54,17 +58,21 @@ Azt mutatjuk meg, hogy $2^{[n]}$ particionálható $\binom{n}{\lfloor \frac{n}{2
 
 Definiáljuk $\binom{[n]}{k}$ és $\binom{[n]}{k-1}$ között azt a $\GG$ páros gráfot, ahol az élek tartalmazást jelentenek: $A \in \binom{[n]}{k}$ és $B \in \binom{[n]}{k-1}$-re $AB$ él, pontosan akkor, ha $B \subset A$.
 
-\underline{Állítás}: Ha $k > \frac{n}{2}$ akkor $\GG$-ben $\exists \binom{[n]}{k}$-t fedő párosítás, ha pedig $k \leq \frac{n}{2}$ akkor $\exists \binom{[n]}{k-1}$-et fedő párosítás.
+\begin{prop}
+  Ha $k > \frac{n}{2}$ akkor $\GG$-ben $\exists \binom{[n]}{k}$-t fedő párosítás, ha pedig $k \leq \frac{n}{2}$ akkor $\exists \binom{[n]}{k-1}$-et fedő párosítás.
+\end{prop}
 
 Állítás biz ($k > \frac{n}{2}$ eset):
 Legyen $x \subseteq \binom{[n]}{k}$. $\forall A \in x$-nek pontosan $k$ szomszédja van $\binom{[n]}{k-1}$-ben. Tehát $x$ és $N(x)$ között $|X| \cdot k$ él fut. $\forall B \in N(x)$-nek $n-k+1$ szomszédja van $\binom{[n]}{k}$-ban (ezek lehetnek $x$-ben és $x$-en kívül is) $\Rightarrow$ Az $x$ és $N(x)$ közötti élek száma $\leq |N(x)| \cdot (n-k+1)$.
 
 Tehát $|x| \cdot k \leq |N(x)|(n-k+1)$, azaz $|N(x)| \geq |x| \frac{k}{n-k-1} \geq |x|$, ha $k > \frac{n}{2}$, mert $k > \frac{n}{2}$-re $k \geq n-k+1$.
 
+\medskip
+
 Állítás biz ($k \geq \frac{n}{2}$ eset):
 Hasonlóan, $|x| (n-k+1) \leq |N(x)| \cdot k$, azaz $|N(x)| \geq |x| \frac{n-k+1}{k} \geq |x|$, mert $k \geq \frac{n}{2}$-re $n-k+1 \geq k$.
 
-Állítás biz: $\square$
+\medskip
 
 A kapott párosítások felhasználásával adódik a láncokra való felbontás. Mivel egy Sperner rendszerben nem lehet több elem egyetlen láncbók, ha $\AA$ Sperner rendszer, akkor $|\AA| \leq \binom{n}{\lfloor \frac{n}{2} \rfloor}$, azaz a láncfelbontásbeli láncok száma.
 
