@@ -1,0 +1,25 @@
+\chapter{Páratlanváros tétel és Párosváros tétel.}
+
+\begin{thm} Páratlanváros tétel:
+  Legyen $\FF \subseteq 2^{[n]}$ olyan halmazrendszer, hogy $\forall F \in \FF$-re $|F| =$ páratlan, továbbá $\forall F, F' \in \FF, F \not = F'$ esetén $|F \in F'|$ páros. Ekkor $|\FF| \leq n$.
+\end{thm}
+
+\begin{obj}
+  Ez a feltétel éles, hiszen vehetjük $\FF$ összes egy elemű halmazának családját.
+\end{obj}
+
+Bizonyítás:
+Tekintsük az $F \in \FF$ halmazok karakterisztikus vektorát, mint GF(2) (0,1 elemeket tartalmazó test) feletti vektorokat.
+
+\begin{prop}
+  Ezek lineárisan függetlenek (GF(2) felett). És egy $n$ dimenziós vektortérben maximum $n$ vektor lehet lineárisan független.
+\end{prop}
+
+Legyenek ezek a vektorok $x_1, \dots x_m$. Tegyük fel, hogy $\sum\limits_{i=1}^{n} \lambda_i \underline{x}_i = 0$. Szorozzuk meg az egyenlet mindkét oldalát $x_j$-vel.
+
+\[x_j(\sum\limits_{i=1}^{n} \lambda_i \underline{x}_i) \underbrace{=}_{\text{páros metszet}} \lambda_j (\underline{x}_j \cdot \underline{x}_j) \underbrace{=}_{\text{páratlan elemszám}} \lambda_j = 0\]
+
+Ez $\forall j$-re fennáll, tehát a nulla csak triviális módon állítható elő a vektorok lineáris kombinációjaként, vagyis tényleg lineárisan függetlenek.
+
+\QED
+
