@@ -15,11 +15,35 @@ Tekintsük az $F \in \FF$ halmazok karakterisztikus vektorát, mint GF(2) (0,1 e
   Ezek lineárisan függetlenek (GF(2) felett). És egy $n$ dimenziós vektortérben maximum $n$ vektor lehet lineárisan független.
 \end{prop}
 
-Legyenek ezek a vektorok $x_1, \dots x_m$. Tegyük fel, hogy $\sum\limits_{i=1}^{n} \lambda_i \underline{x}_i = 0$. Szorozzuk meg az egyenlet mindkét oldalát $x_j$-vel.
+Legyenek ezek a vektorok $x_1, \dots x_m$. Tegyük fel, hogy $\sum\limits_{i=1}^{n} \lambda_i \vx_i = 0$. Szorozzuk meg az egyenlet mindkét oldalát $x_j$-vel.
 
-\[x_j(\sum\limits_{i=1}^{n} \lambda_i \underline{x}_i) \underbrace{=}_{\text{páros metszet}} \lambda_j (\underline{x}_j \cdot \underline{x}_j) \underbrace{=}_{\text{páratlan elemszám}} \lambda_j = 0\]
+\[x_j(\sum\limits_{i=1}^{n} \lambda_i \vx_i) \underbrace{=}_{\text{páros metszet}} \lambda_j (\vx_j \cdot \vx_j) \underbrace{=}_{\text{páratlan elemszám}} \lambda_j = 0\]
 
 Ez $\forall j$-re fennáll, tehát a nulla csak triviális módon állítható elő a vektorok lineáris kombinációjaként, vagyis tényleg lineárisan függetlenek.
 
 \QED
 
+\newpage
+
+\begin{thm} Párosváros tétel:
+  Legyen $\FF \subseteq 2^{[n]}$ olyan halmazrendszer, hogy $\forall F \in \FF$-re $|F| =$ páros, továbbá $\forall F, F' \in \FF, F \not = F'$ esetén $|F \in F'|$ páros. Ekkor $|\FF| \leq 2^{\lfloor \frac{n}{2} \rfloor}$.
+\end{thm}
+
+\begin{obs}
+  Ez a feltétel éles. Párokba osztva az alaphalmaz elemeit és a párokat mindig együtt szerepeltetve a kiválasztott részhalmazban $2^{\lfloor \frac{n}{2} \rfloor}$ méretű jó konstrukciót kapunk.
+\end{obs}
+
+Legyenek $x_1, x_2, \dots , x_m$ egy megfelelő $\FF$ halmazrendszer halmazának karakterisztikus vektorai (GF(2) felett).
+
+\begin{flalign}
+  U\hphantom{^{\bot}} &:= <\vx_1, \dots, \vx_m> \text{generált altér.} & \\
+  U^{\bot} &:= \{y \in [GF(2)]^n: \hspace{0.5em} \vx \cdot \vy = 0, \forall \vx \in U\}
+\end{flalign}
+
+$U \subseteq U^{\bot}$ (bármely $\vx, \vy \in U$-ra $\vx \cdot \vy = 0$ (páros metszet)), tehát $\dim~U \leq \dim~U^{\bot}$. Továbbá $\dim~U + \dim~U^{\bot} = n$, mert az $U^{\bot}$-t definiáló  $\vx \cdot \vy = 0$ egyenletek egy lineáris egyenletrendszer, melyben $\dim~U$ lineárisan független egyenlet van. Ezért akár a dimenziótétel ($\dim~\textrm{Im}(A) + \dim~\textrm{Ker}(A) = n$), akár arra hivatkozva, hogy $n-\dim~U$ szabad paraméter lesz a megoldás során, a megoldások terének dimenziója éppen $n-dim~U$.
+
+\medskip
+
+Tehát $\dim~U + \dim~U^{\bot} = n$ és $\dim~U \leq \dim~U^{\bot}$, vagyis $\dim~U \leq \frac{n}{2} \Rightarrow |U| \leq 2^{\lfloor \frac{n}{2} \rfloor}$.
+
+\QED
