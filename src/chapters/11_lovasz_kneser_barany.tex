@@ -1,0 +1,145 @@
+\chapter{Lovász-Kneser tétel Bárány féle bizonyítása, Schrijver tétele.}
+
+\begin{notation}
+  $S^d: d+1$ dimenziós gömbnek a $d$ dimenziós felszíne.
+\end{notation}
+
+\begin{dfn}
+  Egy $U$ halmaz nyílt, ha $\forall x \in U$-nak $\exists$ olyan kis környezete, ami teljesen $U$-ban van. Egy halmaz zárt, ha a komplementere nyílt.
+\end{dfn}
+
+\begin{thm} Lusternik-Schnirel'mann tétel:
+  \begin{enumerate}
+    \item Legyenek $A_1, A_2, \dots, A_m \subseteq S^d$ zárt halmazok, melyekre
+    $\overset{m}{\underset{i=1}{\text{\LARGE $\cup$}}} A_i = S^d$ és $\forall i, x \in A_i \Rightarrow -x \not \in A_i$. Ekkor $m \geq d + 2$.
+    \item ugyanez, ha $A_i$ nyílt.
+    \item ugyanez, ha $A_i$ nyílt vagy zárt.
+  \end{enumerate}
+\end{thm}
+
+\begin{thm} "Erős" Gale lemma:
+  Elhelyezhető $n$ pont, $S^{n-2k}$-n úgy, hogy minden nyílt félgömbre legalább $k$ kerüljön, melyek között nincsenek (ciklikusan) szomszédos indexűek.
+\end{thm}
+
+Bizonyítás:
+$d := n - 2k$. Az ötlet az, hogy $\RR^{d+1}$-ben helyezzünk el $n$ pontot úgy, hogy $\forall$ origón átmenő hipersík mindkét oldalán legyen $\geq k$. Ezeket a gömbre vetítve kapjuk a kívánt elhelyezést $S^d$-n.
+
+\medskip
+
+Tekintsük $\RR^{d+1}$-ben az $(1, x, x^2, \dots, x^d)$ koordinátájú pontok alkotta görbét. Ez a görbe tetszőleges $\RR^{d+1}$-beli hipersíkot $\leq d$ pontban metsz (az $x_1 = 1$ hipersíkot nem számítva. Az az egyenlet, egy a pont a síkon és a görbén is rajta van $d$-ed fokú, ezért legfeljebb $d$ gyöke lehet).
+
+\medskip
+
+Továbbá ha van $d$ különböző metszéspont egy hipersíkkal, akkor minden metszéspontnál a görbe átmegy a hipersík túloldalára.
+
+\medskip
+
+A görbe legyen $g(x)$. Válasszunk $n$ különböző pontot $g(x)$-ről, például $\underline{v}_i = g(i)$-t. Legyen $\underline{w}_i = (-1)^i \underline{v}$.
+
+\begin{prop}
+  Ezek a $\underline{w}_i$ pontok már jók lesznek.
+\end{prop}
+
+Tekintsünk egy tetszőleges origón átmenő $H$ hipersíkot. Folytonos mozgatással, anélkül, hogy bármely pontunk a hipersík túloldalára kerülne elérjük, hogy pontosan $n-2k$ pont legyen rajta. Legyenek $w_j$ és $w_k$ két egymást követő, nem a hipersíkra eső $v_j$-ből és $v_k$-ból származtatott pont. $v_i$ és $v_k$ között $(k-j-1)$ db további $v_i$ pont van, amik mind a hipersíkra esetek.
+
+\medskip
+Ha $(k-j-1)$ páratlan, akkor páratlan sokszor kereszteztük a hipersíkot, tehát $v_j$ és $v_k$ különböző oldalon vannak. Továbbá $(-1)^j = (-1)^k$ (hiszen $(j-k)$ páros), tehát $w_k, w_j$ is a hipersík különböző oldalára esik.
+
+\medskip
+
+Ha $(k-j-1)$ páros, akkor páros sokszor kereszteztük a hipersíkot, tehát $v_j$ és $v_k$ azonos oldalon vannak. De $(-1)^j = -(-1)^k$ (hiszen $(j-k)$ páratlan), tehát $w_k, w_j$ ilyenkor is a hipersík különböző oldalára esik.
+
+\medskip
+
+Tehát a $H$-ra rá nem eső pontok felváltva lesznek a $H$ két oldalán $\Rightarrow k$ db lesz mindkét oldalán.
+
+\QED
+
+\begin{dfn}
+  $n, k \in \NN, k < \frac{n}{2}$ esetén az $n, k$ paraméterű $KG(n, k)$ Kneser gráf a következő:
+
+  \begin{flalign}
+    V(KG(n,k)) &= \binom{[n]}{k} &\\
+    E(KG(n,k)) &= \{AB: A,B \in \binom{[n]}{k}, A \cap B = \emptyset\}
+  \end{flalign}
+\end{dfn}
+
+\begin{thm} Lovász-Kneser tétel:
+  $\chi(KG(n, k)) = n - 2k + 2$
+\end{thm}
+
+Bizonyítás (Bárány Imre):
+Tekintsük $S^{n-2k}$-t rajta a Gale Lemma szerint elhelyezett $n$ ponttal.
+
+\medskip
+
+Vegyük $KG(n, k)$ egy jó színezését $m$ színnel, és definiáljuk az $A_i, \dots, A_m \subseteq S^{n-2k+1}$ nyílt halmazokat úgy, hogy $x \in A_i$, ha az $x$ középpontú nyílt félgömb tartalmaz olyan $k$ pontot, hogy az azoknak megfelelő $K(n, k)$-beli csúcspont az adott színezésben $i$ színű.
+
+\medskip
+
+$\forall A_i$ nyílt, és nem tartalmaz antipodális pontpárt, hiszen ha $x \in A_i$ és $-x \in A_i$, akkor $H(x)$ és $H(-x)$ tartalmaz két diszjunkt $k$-ast, ami $KG(n,k)$ két összekötött csúcspont, és mindkettő $i$ színű \Lightning.
+
+\medskip
+
+A pontok Gale lemma szerinti elhelyezése miatt bármely $x$ pont körüli félgömb tartalmaz $k$ pontot, így lesz rajta egy $KG(n,k)$-beli csúcspont, így $x$ biztosan része legalább egy $A_i$-nek. Vagyis $\overset{m}{\underset{i=1}{\text{\LARGE $\cup$}}} A_i = S^{n-2k}$
+
+\medskip
+
+A Lusternik-Schnirel'mann tétel (nyílt változata) miatt tehát $m \geq n - 2k + 2$
+
+\QED
+
+\begin{dfn}
+  $n, k \in \NN, k < \frac{n}{2}$ esetén az $n, k$ paraméterű $SG(n, k)$ Schrijver gráf a következő:
+
+  \begin{flalign}
+    V(SG(n,k)) &= \{A \in \binom{[n]}{k}: \forall i, \{i, i+1\} \not \subseteq A, \{1, n\} \not \subseteq A \} &\\
+    E(SG(n,k)) &= \{AB: A,B \in V(SG(n,k)), A \cap B = \emptyset\}
+  \end{flalign}
+\end{dfn}
+
+\begin{thm} Schrijver tétel: \\
+  \begin{enumerate}
+    \item $\chi(SG(n,k)) = 2 - 2k + 2$. Bárány biz + "Erős" Gale lemma
+    \item $\forall a \in V(SG(n, k)): \chi(SG(n,k) \backslash \{a\}) < n - 2k + 2$
+  \end{enumerate}
+\end{thm}
+
+Bizonyítás (2.):
+Tekintsük $SG(n,k)$-t és egy tetszőleges $A \in V(SG(n,k))$ csúcsát, amit most rögzítünk. Azt akarjuk belátni, hogy $SG(n,k) \backslash A$ kiszínezhető jól $n-2k+1$ színnel.
+
+\medskip
+
+Egyértelműen bontsuk az alapkört maximális olyan ívekre, melyeken belül minden második pont $A$-hoz tartozik. Ezek legyenek $T_1, T_2, \dots T_{n-2k}$. Tegyük fel hogy $T_1$ nem egyetlen pontú (legalább három pontja van). Két szélső pontja legyen $a, b$, illetve $T_0 := T_1 \backshlash \{a, b\}$.
+
+\medskip
+
+Színosztályokat definiálunk:
+\begin{align}
+  S_a &= \{B \in V(SG(n,k)): a \in B\} \\
+  S_b &= \{B \in V(SG(n,k)): b \in B\} \\
+  S_i &= \{B \in V(SG(n,k)): \underbrace{|B \cap T_i| > \frac{|T_i|}{2}}_{*}\}, \forall i = 2,3, \dots n-2k
+\end{align}
+
+*: Ez pontosan akkor igaz, ha $B \cap T_i = T_i \backslash A$, ugyanis $T_i$-nek csak úgy lehet több, mint a felét kiválasztani, hogy az $A$-beli csúcsokat nem vesszük bele.
+
+\medskip
+
+Ha egy $B$ több $T_i$-t is metsz a felénél több pontban, akkor tetszőleges választunk, hogy $T_i$-hez tartozó $S_i$-be tegyük.
+
+\medskip
+
+Ez összesen $n-2k+1$ független halmaz, ami $SG(n,k)$ pontjainak $n-2k+1$ részhalmaza, de még nem tartalmazza az összes pontját.
+
+\medskip
+
+Akik kimaradtak: $B \in V(SG(n,k))$, amikre $|B \cap T_0| > \frac{T_0}{2}$ és $|B \cap T_i| < \frac{T_i}{2} \forall i \geq 2$-re. Ezekre definiáljuk az alábbi halmazokat: $D_i := \{B \in V(SG(n,k)): B \cap T_0 = T_0 \cap A \text{~és~} (B \cap T_i) \backslash A \not = \emptyset\}, \forall i \geq 2$-re.
+
+\medskip
+
+Ha B több $D_i$-be is kerülhet, tetszőlegesen választunk egyet. $S_i' := S_i \cup D_i$ - még így is függetlenek. Hiszen ha $B \in D_i$ és $B' \in S_i' \backslash D_i$, ekkor $B' \cap T_i$ = $T_i \backslash A$ és $B \cap (T_i \ A)$ \not = \emptyset$, vagyis $B \cap B' \not = \emptyset$ (tehát nincs közöttük él). Ha pedig $B, B' \in D_i$, akkor $\emptyset \not = T_0 \cap A \subseteq B \cap B'$, tehát $B$ és $B'$ nem diszjunkt.
+
+Az egyetlen $B \in V(SG(n,k))$ amire $B \not \in S_a \cup S_b \cup \overset{n-2k}{\underset{i=2}{\text{\LARGE $\cup$}}} S_i$, az a $B=A$, vagyis az $S_a, S_b, S_2', \dots S_{n-2k}$ halmazok mint színosztályok $(SG(n,k) \backslash A)$-nak egy jó $(n-2k+1)$ színezését adják. Tehát $\chi(SG(n,k) \backslash \{a\}) \leq n - 2k + 1$.
+
+\QED
+
