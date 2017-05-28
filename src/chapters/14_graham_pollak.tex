@@ -11,12 +11,9 @@
 Bizonyítás (Tverberg):
 Tegyük fel, hogy $m < n-1$. Minden csúcshoz rendeljünk egy változót, $i \in V(K_n)$-hez $x_i$-t. $H_j = (\underbrace{L_j}_{\text{left}}, \underbrace{R_j}_{\text{right}}, E(H_j))$. Tekintsük a következő egyenletrendszert ($\forall i=1, \dots , m$-re, $a$ paraméter esetén):
 
-\begin{align}
-  \sum_{i \in L_a} x_i &= 0 \\
-  \sum_{i = 1}^{n} x_i &= 0.
-\end{align}
+\[\sum_{i \in L_a} x_i = 0, \hspace{3em} \sum_{i = 1}^{n} x_i = 0. \]
 
-Vegyük észre, hogy $$\sum_{i < j} x_i x_j = \sum_{a=1}^m \left(\sum_{i \in L_a} x_i\right) \left(\sum_{j \in R_a} x_j\right)$$, mivel $H_i$-k egy teljes partíciót alkotnak. Továbbá az egyenletrendszer első egyenletének fennállása esetén ebből következik, hogy $\sum_{i < j} x_i x_j = \sum_{a=1}^m (0) (0) = 0$.
+Vegyük észre, hogy $\sum\limits_{i < j} x_i x_j = \sum\limits_{a=1}^m \left(\sum\limits_{i \in L_a} x_i\right) \left(\sum\limits_{j \in R_a} x_j\right)$, mivel $H_i$-k egy teljes partíciót alkotnak. Továbbá az egyenletrendszer első egyenletének fennállása esetén ebből következik, hogy $\sum_{i < j} x_i x_j = \sum_{a=1}^m (0) (0) = 0$.
 
 \medskip
 
