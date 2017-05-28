@@ -11,7 +11,7 @@
 \begin{thm} Lusternik-Schnirel'mann tétel:
   \begin{enumerate}
     \item Legyenek $A_1, A_2, \dots, A_m \subseteq S^d$ zárt halmazok, melyekre
-    $\overset{m}{\underset{i=1}{\text{\LARGE $\cup$}}} A_i = S^d$ és $\forall i, x \in A_i \Rightarrow -x \not \in A_i$. Ekkor $m \geq d + 2$.
+    $\cuploop{m}{i=1} A_i = S^d$ és $\forall i, x \in A_i \Rightarrow -x \not \in A_i$. Ekkor $m \geq d + 2$.
     \item ugyanez, ha $A_i$ nyílt.
     \item ugyanez, ha $A_i$ nyílt vagy zárt.
   \end{enumerate}
@@ -81,7 +81,7 @@ $\forall A_i$ nyílt, és nem tartalmaz antipodális pontpárt, hiszen ha $x \in
 
 \medskip
 
-A pontok Gale lemma szerinti elhelyezése miatt bármely $x$ pont körüli félgömb tartalmaz $k$ pontot, így lesz rajta egy $KG(n,k)$-beli csúcspont, így $x$ biztosan része legalább egy $A_i$-nek. Vagyis $\overset{m}{\underset{i=1}{\text{\LARGE $\cup$}}} A_i = S^{n-2k}$
+A pontok Gale lemma szerinti elhelyezése miatt bármely $x$ pont körüli félgömb tartalmaz $k$ pontot, így lesz rajta egy $KG(n,k)$-beli csúcspont, így $x$ biztosan része legalább egy $A_i$-nek. Vagyis $\cuploop{m}{i=1} A_i = S^{n-2k}$
 
 \medskip
 
@@ -139,7 +139,7 @@ Akik kimaradtak: $B \in V(SG(n,k))$, amikre $|B \cap T_0| > \frac{T_0}{2}$ és $
 
 Ha B több $D_i$-be is kerülhet, tetszőlegesen választunk egyet. $S_i' := S_i \cup D_i$ - még így is függetlenek. Hiszen ha $B \in D_i$ és $B' \in S_i' \backslash D_i$, ekkor $B' \cap T_i$ = $T_i \backslash A$ és $B \cap (T_i \ A) \not = \emptyset$, vagyis $B \cap B' \not = \emptyset$ (tehát nincs közöttük él). Ha pedig $B, B' \in D_i$, akkor $\emptyset \not = T_0 \cap A \subseteq B \cap B'$, tehát $B$ és $B'$ nem diszjunkt.
 
-Az egyetlen $B \in V(SG(n,k))$ amire $B \not \in S_a \cup S_b \cup \overset{n-2k}{\underset{i=2}{\text{\LARGE $\cup$}}} S_i$, az a $B=A$, vagyis az $S_a, S_b, S_2', \dots S_{n-2k}$ halmazok mint színosztályok $(SG(n,k) \backslash A)$-nak egy jó $(n-2k+1)$ színezését adják. Tehát $\chi(SG(n,k) \backslash \{a\}) \leq n - 2k + 1$.
+Az egyetlen $B \in V(SG(n,k))$ amire $B \not \in S_a \cup S_b \cup \cuploop{n-2k}{i=2} S_i$, az a $B=A$, vagyis az $S_a, S_b, S_2', \dots S_{n-2k}$ halmazok mint színosztályok $(SG(n,k) \backslash A)$-nak egy jó $(n-2k+1)$ színezését adják. Tehát $\chi(SG(n,k) \backslash \{a\}) \leq n - 2k + 1$.
 
 \QED
 

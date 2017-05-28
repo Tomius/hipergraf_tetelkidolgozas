@@ -1,0 +1,27 @@
+\chapter{Graham-Pollak tétel.}
+
+\begin{thm}
+  Legyenek $H_1, \dots, H_n$ teljes páros gráfok, melyek $\forall i \not = j: E(H_i) \cap E(H_j) = \emptyset$ és $\cuploop{m}{i=1} E(H_i) = E(K_n)$. Ekkor $m \geq n - 1$.
+\end{thm}
+
+\begin{obs}
+  Ez éles. Pl $K_n$ szétbontható $n-1$ csillagra.
+\end{obs}
+
+Bizonyítás (Tverberg):
+Tegyük fel, hogy $m < n-1$. Minden csúcshoz rendeljünk egy változót, $i \in V(K_n)$-hez $x_i$-t. $H_j = (\underbrace{L_j}_{\text{left}}, \underbrace{R_j}_{\text{right}}, E(H_j))$. Tekintsük a következő egyenletrendszert ($\forall i=1, \dots , m$-re, $a$ paraméter esetén):
+
+\begin{align}
+  \sum_{i \in L_a} x_i &= 0 \\
+  \sum_{i = 1}^{n} x_i &= 0.
+\end{align}
+
+Vegyük észre, hogy $$\sum_{i < j} x_i x_j = \sum_{a=1}^m \left(\sum_{i \in L_a} x_i\right) \left(\sum_{j \in R_a} x_j\right)$$, mivel $H_i$-k egy teljes partíciót alkotnak. Továbbá az egyenletrendszer első egyenletének fennállása esetén ebből következik, hogy $\sum_{i < j} x_i x_j = \sum_{a=1}^m (0) (0) = 0$.
+
+\medskip
+
+A fenti egyenletrendszer $m+1 < n$ egyenletből áll és $n$ változója van $\Rightarrow \exits$ nem triviális megoldás. Ez legyen $c_1, c_2, \dots, c_n$. Erre:
+
+\[0 = \left(\sum_i^n c_i \right)^2 = \sum_i^n c_i^2 + \underbrace{2\sum_{i < j} c_i c_j}_{=0} = \sum_i^n c_i^2 > 0\]
+
+Ez viszont ellentmondás. \QED
