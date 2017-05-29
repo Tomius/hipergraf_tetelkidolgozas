@@ -1,8 +1,29 @@
 \chapter{Kruskal-Katona tétel. (*)}
 
+\begin{dfn} Egy halmazrendszer árnyéka:
+  $\partial \FF = \{B \in \binom{[n]}{r-1}: \exists F \in \FF, B \subseteq F\}$
+\end{dfn}
+
+\begin{notation} \hspace{1em} \newline
+  $b^{(r)}(m_r, m_{r-1}, \dots, m_s) = \binom{m_r}{r} + \binom{m_{r-1}}{r-1} + \dots + \binom{m_s}{s}$\\
+  $\AA \oplus \{a_{i1}, a_{i2}, \dots, a_{ih}\}: \{A \cup \{a_{i1}, a_{i2}, \dots, a_{ih}\}: A \in \AA\} $\\
+  $\AA \ominus \{a_{i1}, a_{i2}, \dots, a_{ih}\}: \{A \backslash \{a_{i1}, a_{i2}, \dots, a_{ih}\}: A \in \AA\} $\\
+  % $B^{(r)}(m_r, m_{r-1}, \dots, m_s) =$ a következő halmazrendszer: \\
+  % $\binom{[m_r]}{r} \cup \{\binom{[m_{r-1}]}{r-1} \oplus \{m_r + 1\}\} \cup \{\binom{[m_{r-2}]}{r-2} \oplus \{m_r + 1, m_{r-1} + 1\}\} \cup \dots$
+\end{notation}
+
+\bigbreak
+
+Észrevételek:
+\begin{itemize}
+  % \item A $B^{(r)}(m_r, m_{r-1}, \dots, m_s)$ az első $b^{(r)}(m_r, m_{r-1}, \dots, m_s)$ db $r$ elemű részhalmaza $\NN$-nek a kolexikografikus rendezés szerint.
+  \item $b^{(r)}(m_r, m_{r-1}, \dots, m_s) = b^{(r)}(m_r-1, m_{r-1}-1, \dots, m_s-1) + b^{(r-1)}(m_r-1, m_{r-1}-1, \dots, m_s-1)$. Ez egyszerűen abból következik, hogy minden $j$-re $\binom{m_j}{j} = \binom{m_j-1}{j} + \binom{m_j-1}{j-1}$
+  % \item $\partial B^{(r)}(m_r, \dots, m_s) = B^{(r-1)}(m_r, \dots, m_s)$
+\end{itemize}
+
 \begin{thm} Kruskal-Katona tétel:
 
-  Legyen $r \geq 1$ és $\AA \subseteq \binom{\NN}{r}$. Ekkor $\partial \AA \geq \partial^{(r)}(|\AA|)$, ahol $\partial^{(r)}(m)$ a kolexikografikus első m db r elemű halmaz árnyéka.
+  Legyen $r \geq 1$ és $\AA \subseteq \binom{\NN}{r}$. Ekkor $\partial \AA \geq \partial^{(r)}(|\AA|)$, ahol $\partial^{(r)}(m)$ a kolexikografikusan rendezett első m db r elemű halmaz árnyéka.
 \end{thm}
 
 Biz~\footnote{Egy hasonló, de picivel egyszerűbb bizonyítás: \\ \url{http://www.sciencedirect.com/science/article/pii/0012365X84901936}
@@ -36,11 +57,11 @@ Vegyük észre, hogy a lemma állításával ekvivalensek az alábbi állításo
 Ezeket a megfigyeléseket felhasználva azt fogjuk belátni, hogy
 \[R_{ij}(\partial R_{ij}(\AA)) \backslash \partial\AA \subseteq \partial A \backslash \partial R_{ij}(\AA).\]
 
-W.l.o.g: $i:=1, j:=2$. Jelölés: $C \in \binom{\NN}{r-2}, 1,2 \in C$ és $k \in \NN \backslash \{1, 2\}$, illetve $kC$-nek hívjuk azt a halmazt, hogy $\{k\} \cup C$.
+W.l.o.g: $i:=1, j:=2$. Jelölés: $C \in \binom{\NN}{r-2}, 1,2 \not \in C$ és $k \in \NN \backslash \{1, 2\}$, illetve $kC$-nek hívjuk azt a halmazt, hogy $\{k\} \cup C$.
 
 \medskip
 
-Legyen $B \in R_{21}(\partial R_{12} \backslash \partial \AA)$. Ekkor $1 \not \in B, 2 \in B$, azaz a $B$ halmaz $2C$ alakú. Ekkor vagy $1C \in \partial
+Legyen $B \in R_{21}(\partial R_{12}(\AA) \backslash \partial \AA)$. Ekkor $1 \not \in B, 2 \in B$, azaz a $B$ halmaz $2C$ alakú. Ekkor vagy $1C \in \partial
  R_{12}(\AA) \backslash \partial \AA$, tehát $2C \in \partial \AA$, vagy $2C \in \partial R_{12} (\AA) \backslash \partial \AA$. Az utóbbi viszont nem lehet, mert ha a $\partial R_{12} (\AA)$ egyik halmazában szerepel a $2$ elem, akkor az a $\partial \AA$ megfelelő halmazában is szerepelne, tehát a különbségképzés után már nem szerepelne az eredményben. Tehát $B \in \partial \AA$.
 
  \medskip
@@ -60,15 +81,15 @@ A Kruskal-Katona tétel bizonyítása: A lemma alapján feltehető, hogy $\AA$ b
   \item $\AA = \AA_0 \cup \AA_1$.
 \end{itemize}
 
-Ekkor a balra toltság miatt $\partial \AA_0 \subseteq \AA_1 \ominus \{1\}$, illetve $\partial \AA_1 = (\AA_1 \ominus \{1\}) \cup \partial(\AA_1 \ominus \{1\}) \oplus \{1\}$. Alkalmazzunk dupla indukciót $m$-re és $r$-re. A kezdő elemek triviálisan igaz a Kruskal-Katona tétel állítása:
+Ekkor a balra toltság miatt $\partial \AA_0 \subseteq \AA_1 \ominus \{1\}$, illetve $\partial \AA_1 = (\AA_1 \ominus \{1\}) \cup \partial(\AA_1 \ominus \{1\}) \oplus \{1\}$. A KK tétel bizonyításához alkalmazzunk dupla indukciót $m$-re és $r$-re. A kezdő elemek triviálisan igaz a Kruskal-Katona tétel állítása:
 \begin{itemize}
   \item $m=1$ és tetszőleges $r$ \checkmark
   \item $r=1$ és tetszőleges $m$ \checkmark
 \end{itemize}
 
-Indukciós feltevés, hogy $1, 2, \dots, r-1$ és tetszőleges m esetén \checkmark, illetve $m-1$ is \checkmark, $1,2,\dots,r$-re.
+Indukciós feltevés, hogy $1, 2, \dots, r-1$ és tetszőleges m esetén \checkmark, illetve $m-1$ is \checkmark, $1,2,\dots,r$-re igaz az KK-tétel.
 
-\bigbreak
+\medbreak
 
 \begin{prop}
   $|\AA_1| \geq b^{(r-1)}(m_r-1,\dots, m_s-1)$, ahol $m_r, \dots, m_s$ az m binomiális felírásából származnak, azaz $|\AA| = m =  b^{(r)}(m_r,\dots, m_s)$.

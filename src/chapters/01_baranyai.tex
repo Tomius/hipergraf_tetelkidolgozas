@@ -26,7 +26,7 @@
 
 Egy ezzel ekvivalens tétel:
 \begin{thm}
-  Minden $r|n$ és $1 \leq k \leq n$ viszonyt teljesítő $r,n,k$ értékekre a $\{1, 2, \dots, k\}$ halmaznak (ezt a halmazt jelölje $[k]$ a későbbiekben) van $M = \binom{n-1}{r-1}$ db olyan partíciója legfeljebb r méretű halmazokra, hogy minden partícióban az $\emptyset$-t is megengedve $m = \frac{n}{r}$ osztály van, és $\forall s \subseteq [k]$ részhalmaz pontosan $\binom{n-k}{r-|s|}$ partícióban fordul elő.
+  Minden $r|n$ és $1 \leq k \leq n$ viszonyt teljesítő $r,n,k$ értékekre a $\{1, 2, \dots, k\}$ halmaznak (ezt a halmazt jelölje $[k]$ a későbbiekben) van $M = \frac{\binom{n}{r}}{\frac{n}{r}}=\binom{n-1}{r-1}$ db olyan partíciója legfeljebb r méretű halmazokra, hogy minden partícióban az $\emptyset$-t is megengedve $m = \frac{n}{r}$ osztály van, és $\forall s \subseteq [k]$ részhalmaz pontosan $\binom{n-k}{r-|s|}$ partícióban fordul elő.
 \end{thm}
 
 Megjegyzések:
@@ -48,7 +48,7 @@ Bizonyítás (Ekvivalens tétel):
   Biz: Ha A minden eleme egész, akkor készen vagyunk. Különben induljunk ki egy nem egész elemből. Az egész sorösszeg miatt lesz a sorában legalább egy másik nem egész elem, aminek az oszlopában szintén lesz egy nem egész elem, stb. A véges sok elem miatt előbb-utóbb elérünk egy olyan elemhez, ahol egyszer már jártunk. Az útvonalban felhasznált elemnek lesz olyan részhalmaza, ami egy páros sok elemből álló kört alkot (a vízszintes és függőleges mozgások váltakozása miatt). Legyen $\delta$ az a legkisebb abszolút értékű szám, amit az egyik elemhez hozzá kell adni, hogy egész legyen. A kör mentén felváltva $+\delta$-val és $-\delta$-val módosítsuk az elemeket, úgy, hogy az egészhez legközelebbi elem egésszé váljon. Így legalább eggyel több egész szám lesz a mátrixban, és a sor- és oszlopösszegek nem változnak. Ezt az algoritmust ismételjük, amíg minden elem egész nem lesz.
 
   \item Indukciós lépés $k$-ra:
-  Tekintsük azt a mátrixot, aminek a sorai a $k$-ra vonatkozó állítást teljesítő partíciók, oszlopai $[k]$ részhalmazai és az $i$-edik partíció $s$-hez tartozó oszlopában szereplő érték az $\frac{\binom{n-k-1}{r-|s|-1}}{\binom{n-k}{r-s}} = \frac{r-|s|}{n-k}$, ha $s$ megjelenik az $i$-edik partícióban partícióosztályként (és $s \neq \emptyset$), nulla egyébként. $S = \emptyset$ esetén is ugyanígy járunk el, csak az értéket még felszorozzuk az $\emptyset$ multiplicitásával.
+  Tekintsük azt a mátrixot, aminek a sorai a $k$-ra vonatkozó állítást teljesítő partíciók, oszlopai $[k]$ részhalmazai és az $i$-edik partíció $s$-hez tartozó oszlopában szereplő érték az $\frac{\binom{n-k-1}{r-|s|-1}}{\binom{n-k}{r-|s|}} = \frac{r-|s|}{n-k}$, ha $s$ megjelenik az $i$-edik partícióban partícióosztályként (és $s \neq \emptyset$), nulla egyébként. $S = \emptyset$ esetén is ugyanígy járunk el, csak az értéket még felszorozzuk az $\emptyset$ multiplicitásával.
 
   Erre a mátrixra alkalmazzuk az előbb ismertetett lemmát. Erre egy példa \aref{fig:baranyai} ábrán látható.
 

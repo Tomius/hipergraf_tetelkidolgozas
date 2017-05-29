@@ -1,50 +1,50 @@
 \chapter{Kolexikografikus rendezés. Pozitív egészek felírása r-binomiális alakban, a felírás egyértelműsége.}
 
-\begin{dfn} Egy halmazrendszer árnyéka:
-  $\partial \FF = \{B \in \binom{[n]}{r-1}: \exists F \in \FF, B \subseteq F\}$
-\end{dfn}
+% \begin{dfn} Egy halmazrendszer árnyéka:
+%   $\partial \FF = \{B \in \binom{[n]}{r-1}: \exists F \in \FF, B \subseteq F\}$
+% \end{dfn}
 
-Probléma: Ha $\FF \subseteq \binom{[n]}{r}$ és egy fix $m$-re $|\FF|=m$, akkor hogyan kell megválasztani $\FF$ elemeit, hogy $|\partial \FF|$ minimális legyen?
+% Probléma: Ha $\FF \subseteq \binom{[n]}{r}$ és egy fix $m$-re $|\FF|=m$, akkor hogyan kell megválasztani $\FF$ elemeit, hogy $|\partial \FF|$ minimális legyen?
 
-\vspace{1em}
+% \vspace{1em}
 
-Példa $n=8, r=3$ esetén olyan $\FF$-ekre, ahol $|\partial \FF|$ minimális:
-\begin{itemize}
-  \item $\left\{ \begin{aligned}
-    m &= 2 \\
-    \FF &= \{123, 234\} \hspace{2em} \left(\text{ami egy jelölés erre:} \{\{1,2,3\}, \{2,3,4\}\}\right) \\
-    \partial \FF &= \{12, 23, 13, 24, 34\}
-  \end{aligned} \right.$
+% Példa $n=8, r=3$ esetén olyan $\FF$-ekre, ahol $|\partial \FF|$ minimális:
+% \begin{itemize}
+%   \item $\left\{ \begin{aligned}
+%     m &= 2 \\
+%     \FF &= \{123, 234\} \hspace{2em} \left(\text{ami egy jelölés erre:} \{\{1,2,3\}, \{2,3,4\}\}\right) \\
+%     \partial \FF &= \{12, 23, 13, 24, 34\}
+%   \end{aligned} \right.$
 
-  \item $\left\{ \begin{aligned}
-    m &= 3 \\
-    \FF &= \{123, 234, 124\} \\
-    \partial \FF &= \{12, 23, 13, 24, 34, 14\}
-  \end{aligned} \right.$
+%   \item $\left\{ \begin{aligned}
+%     m &= 3 \\
+%     \FF &= \{123, 234, 124\} \\
+%     \partial \FF &= \{12, 23, 13, 24, 34, 14\}
+%   \end{aligned} \right.$
 
-  \item $\left\{ \begin{aligned}
-    m &= 4 \\
-    \FF &= \{123, 234, 124, 134\} \\
-    \partial \FF &= \{12, 23, 13, 24, 34, 14\}
-  \end{aligned} \right.$
+%   \item $\left\{ \begin{aligned}
+%     m &= 4 \\
+%     \FF &= \{123, 234, 124, 134\} \\
+%     \partial \FF &= \{12, 23, 13, 24, 34, 14\}
+%   \end{aligned} \right.$
 
-  \item $\left\{ \begin{aligned}
-    m &= 5 \\
-    \FF &= \{123, 234, 124, 134, 125\} \\
-    \partial \FF &= \{12, 23, 13, 24, 34, 14, 15, 25\}
-  \end{aligned} \right.$
+%   \item $\left\{ \begin{aligned}
+%     m &= 5 \\
+%     \FF &= \{123, 234, 124, 134, 125\} \\
+%     \partial \FF &= \{12, 23, 13, 24, 34, 14, 15, 25\}
+%   \end{aligned} \right.$
 
-  \item $\left\{ \begin{aligned}
-    m &= 6 \\
-    \FF &= \{123, 234, 124, 134, 125, 235\} \\
-    \partial \FF &= \{12, 23, 13, 24, 34, 14, 15, 25, 35\}
-  \end{aligned} \right.$
+%   \item $\left\{ \begin{aligned}
+%     m &= 6 \\
+%     \FF &= \{123, 234, 124, 134, 125, 235\} \\
+%     \partial \FF &= \{12, 23, 13, 24, 34, 14, 15, 25, 35\}
+%   \end{aligned} \right.$
 
-\end{itemize}
+% \end{itemize}
 
-\begin{obs}
-  Az előbbi példa alapján kézenfekvőnek tűnik az a sejtés, hogy a $\binom{[n]}{r}$ halmazoknak létezik olyan sorrendje, hogy a sorrend első $m$ elemének az árnyéka minimális. A későbbiekben látni fogjuk, hogy ez a sejtés igaz.
-\end{obs}
+% \begin{obs}
+%   Az előbbi példa alapján kézenfekvőnek tűnik az a sejtés, hogy a $\binom{[n]}{r}$ halmazoknak létezik olyan sorrendje, hogy a sorrend első $m$ elemének az árnyéka minimális. A későbbiekben látni fogjuk, hogy ez a sejtés igaz.
+% \end{obs}
 
 Megjegyzés: A halmazok közötti sorrend értelmezéséhez azt feltételezzük, hogy a halmazok elemei egy halmazon belül balról-jobbra növekvő sorrendben vannak rendezve. Tehát például a $\{3, 5, 1\}$ halmazban az elemek belső sorrendjének az $1, 3, 5$ sorozatot értjük.
 
@@ -73,7 +73,7 @@ A kolexikografikus rendezésnek az a tulajdonsága, hogy a nagy elemeket a ``leh
 
 \begin{thm}
   $\forall m, r \in \NN \exists m$-nek $r$-binomiális felírása:
-  \[m = \binom{m_r}{r} + \binom{m_{r-1}}{r-1} + \dots \binom{m_s}{s}\], ahol $m_r > m_{r-1} > \dots > m_s$(, az s értéke m-től és r-től függ), és ez a felírás egyértelmű.
+  \[m = \binom{m_r}{r} + \binom{m_{r-1}}{r-1} + \dots + \binom{m_s}{s}\], ahol $m_r > m_{r-1} > \dots > m_s$(, az s értéke m-től és r-től függ), és ez a felírás egyértelmű.
 \end{thm}
 
 \begin{samepage} % TODO: ez miert nem mukodik?
@@ -92,7 +92,7 @@ Tegyük fel, hogy valamely j-re $m_j \geq m_{j+1}$. Ekkor $\binom{m_j}{j} \geq \
 
 \bigskip
 
-Kell még, hogy a felírás egyértelmű. Indirekt tegyük fel, hogy nem az, vagyis $\exists$ két ilyen felírása egy $m$ számnak: $m = \binom{m_r}{r} + \dots + \binom{m_s}{s}$, ahol $m_r > \dots > m_s$ és $m = \binom{m_r'}{r} + \dots + \binom{m_s}{s}$, ahol $m_r' > \dots > m_s'$. Legyen $j$ a legnagyobb index, amire $m_j = m_j'$. Vagyis $d_{j+1}$-nek van két felírása, ahol az első tagok különböznek: $\binom{m_j}{j} + \binom{m_{j-1}}{j-1} + \dots + \binom{m_s}{s} = \overbrace{m - \binom{m_r}{r} - \dots - \binom{m_{j+1}}{j+1}}^{d_{j+1}} = m - \binom{m_r'}{r} - \dots - \binom{m_{j+1}''}{j+1} = \underbrace{\binom{m_j'}{j} + \binom{m_{j-1}'}{j-1} + \dots + \binom{m_s'}{s}}_{A}$.
+Kell még, hogy a felírás egyértelmű. Indirekt tegyük fel, hogy nem az, vagyis $\exists$ két ilyen felírása egy $m$ számnak: $m = \binom{m_r}{r} + \dots + \binom{m_s}{s}$, ahol $m_r > \dots > m_s$ és $m = \binom{m_r'}{r} + \dots + \binom{m_s'}{s}$, ahol $m_r' > \dots > m_s'$. Legyen $j$ a legnagyobb index, amire $m_j = m_j'$. Vagyis $d_{j+1}$-nek van két felírása, ahol az első tagok különböznek: $\binom{m_j}{j} + \binom{m_{j-1}}{j-1} + \dots + \binom{m_s}{s} = \overbrace{m - \binom{m_r}{r} - \dots - \binom{m_{j+1}}{j+1}}^{d_{j+1}} = m - \binom{m_r'}{r} - \dots - \binom{m_{j+1}''}{j+1} = \underbrace{\binom{m_j'}{j} + \binom{m_{j-1}'}{j-1} + \dots + \binom{m_s'}{s}}_{A}$.
 
 \bigskip
 
@@ -103,20 +103,3 @@ WLOG (Without Loss Of Generality) tegyük fel, hogy $m_j > m_j'$. Ekkor $m_j' \l
 Vagyis $A = \binom{m_j}{j} + \binom{m_{j-1}}{j-1} + \dots + \binom{m_s}{s} < \binom{m_j}{j}$, ami ellentmondás \Lightning. Tehát a felírás egyértelmű.
 
 \QED
-
-\begin{notation} \hspace{1em} \newline
-  $b^{(r)}(m_r, m_{r-1}, \dots, m_s) = \binom{m_r}{r} + \binom{m_{r-1}}{r-1} + \dots \binom{m_s}{s}$\\
-  $\AA \oplus \{a_{i1}, a_{i2}, \dots, a_{ih}\}: \{A \cup \{a_{i1}, a_{i2}, \dots, a_{ih}\}: A \in \AA\} $\\
-  $\AA \ominus \{a_{i1}, a_{i2}, \dots, a_{ih}\}: \{A \backslash \{a_{i1}, a_{i2}, \dots, a_{ih}\}: A \in \AA\} $\\
-  $B^{(r)}(m_r, m_{r-1}, \dots, m_s) =$ a következő halmazrendszer: \\
-  $\binom{[m_r]}{r} \cup \{\binom{[m_{r-1}]}{r-1} \oplus \{m_r + 1\}\} \cup \{\binom{[m_{r-2}]}{r-2} \oplus \{m_r + 1, m_{r-1} + 1\}\} \cup \dots$
-\end{notation}
-
-\bigbreak
-
-Észrevételek:
-\begin{itemize}
-  \item A $B^{(r)}(m_r, m_{r-1}, \dots, m_s)$ az első $b^{(r)}(m_r, m_{r-1}, \dots, m_s)$ db $r$ elemű részhalmaza $\NN$-nek a kolexikografikus rendezés szerint.
-  \item $b^{(r)}(m_r, m_{r-1}, \dots, m_s) = b^{(r)}(m_r-1, m_{r-1}-1, \dots, m_s-1) + b^{(r-1)}(m_r-1, m_{r-1}-1, \dots, m_s-1)$. Ez egyszerűen abból következik, hogy minden $j$-re $\binom{m_j}{j} = \binom{m_j-1}{j} + \binom{m_j-1}{j-1}$
-  \item $\partial B^{(r)}(m_r, \dots, m_s) = B^{(r-1)}(m_r, \dots, m_s)$
-\end{itemize}
