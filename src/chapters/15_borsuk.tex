@@ -8,7 +8,7 @@ $f(d) := min\{k: $tetszőleges $d$ dimenziós halmaz feledhető $k$ db az övén
 
 \medskip
 
-Borsuk-``sejtés'': $f(d) \geq d+1$.
+Borsuk-``sejtés'': $f(d) = d+1$.
 
 \begin{thm} Kahn-Kalai:
   Ha $d$ elég nagy, akkor $f(d) > (1+\delta)^{\sqrt{d}}$ alkalmas $\delta > 0$-ra.
@@ -76,9 +76,9 @@ Továbbá legyen $\overline{P_{\va}(\vx)}$ ennek a függvénynek az módosulata,
   A $\{\overline{P_{\va}(\vx)}\}_{\va \in \GG}$ polinomok lineárisan függetlenek.
 \end{prop}
 
-$\sum\limits{\va \in \GG} \lambda_{\va} \overline{P_{\va}(\vx)} = 0$ egyenletből $\vx = \vb \in \GG$ helyettesítéssel, és felhasználva, hogy $\va \not = \vb$ esetén $\overline{P_{\va}(\vx)} = 0$, hogy a adódik, hogy $\sum\limits{\va \in \GG} \lambda_{\va} \overline{P_{\va}(\vb)} = \lambda_{\vb} \underbrace{\overline{P_{\vb}(\vb)}}_{\not = 0} = 0 \Rightarrow \lambda_{\vb} = 0$. $\forall \vb$-re $\in \GG$.
+$\sum\limits_{\va \in \GG} \lambda_{\va} \overline{P_{\va}(\vx)} = 0$ egyenletből $\vx = \vb \in \GG$ helyettesítéssel, és felhasználva, hogy $\va \not = \vb$ esetén $\overline{P_{\va}(\vx)} = 0$ adódik, hogy $\sum\limits_{\va \in \GG} \lambda_{\va} \overline{P_{\va}(\vb)} = \lambda_{\vb} \underbrace{\overline{P_{\vb}(\vb)}}_{\not = 0} = 0 \Rightarrow \lambda_{\vb} = 0$. $\forall \vb$-re $\in \GG$.
 
-Tehát $|G|$ legfeljebb akkora, mint a $P_{\va}(\vx)$ polinomok terének dimenziója (ennél több vektor nem lehetne lineárisan független), ami a lehetséges monomok számával, azaz $\sum\limits_{i=0}^{p-1} \binom{n}{1}$-el becsülhető.
+Tehát $|G|$ legfeljebb akkora, mint a $P_{\va}(\vx)$ polinomok terének dimenziója (ennél több vektor nem lehetne lineárisan független), ami a lehetséges monomok számával, azaz $\sum\limits_{i=0}^{p-1} \binom{n}{i}$-el becsülhető.
 
 Tétel biz:
 $S:= \{\vx \otimes \vx: x \in \FF\}$, ahol a $\otimes$ a Tenzor-szorzat.

@@ -1,7 +1,7 @@
 \chapter{Graham-Pollak tétel}
 
 \begin{thm}
-  Legyenek $H_1, \dots, H_n$ teljes páros gráfok, melyek $\forall i \not = j: E(H_i) \cap E(H_j) = \emptyset$ és $\cuploop{m}{i=1} E(H_i) = E(K_n)$. Ekkor $m \geq n - 1$.
+  Legyenek $H_1, \dots, H_m$ teljes páros gráfok, melyek $\forall i \not = j: E(H_i) \cap E(H_j) = \emptyset$ és $\cuploop{m}{i=1} E(H_i) = E(K_n)$. Ekkor $m \geq n - 1$.
 \end{thm}
 
 \begin{obs}
@@ -13,7 +13,7 @@ Tegyük fel, hogy $m < n-1$. Minden csúcshoz rendeljünk egy változót, $i \in
 
 \[\sum_{i \in L_a} x_i = 0, \hspace{3em} \sum_{i = 1}^{n} x_i = 0. \]
 
-Vegyük észre, hogy $\sum\limits_{i < j} x_i x_j = \sum\limits_{a=1}^m \left(\sum\limits_{i \in L_a} x_i\right) \left(\sum\limits_{j \in R_a} x_j\right)$, mivel $H_i$-k egy teljes partíciót alkotnak. Továbbá az egyenletrendszer első egyenletének fennállása esetén ebből következik, hogy $\sum_{i < j} x_i x_j = \sum_{a=1}^m (0) (0) = 0$.
+Vegyük észre, hogy $\sum\limits_{i < j} x_i x_j = \sum\limits_{a=1}^m \left(\sum\limits_{i \in L_a} x_i\right) \left(\sum\limits_{j \in R_a} x_j\right)$, mivel $H_i$-k egy teljes partíciót alkotnak. Továbbá az egyenletrendszer első egyenletének fennállása esetén ebből következik, hogy $\sum_{i < j} x_i x_j = \sum_{a=1}^m (0) \left(\sum\limits_{j \in R_a} x_j\right) = 0$.
 
 \medskip
 

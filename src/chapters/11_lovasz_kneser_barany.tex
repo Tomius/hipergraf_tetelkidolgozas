@@ -40,7 +40,7 @@ A görbe legyen $g(x)$. Válasszunk $n$ különböző pontot $g(x)$-ről, péld�
   Ezek a $\underline{w}_i$ pontok már jók lesznek.
 \end{prop}
 
-Tekintsünk egy tetszőleges origón átmenő $H$ hipersíkot. Folytonos mozgatással, anélkül, hogy bármely pontunk a hipersík túloldalára kerülne elérjük, hogy pontosan $n-2k$ pont legyen rajta. Legyenek $w_j$ és $w_k$ két egymást követő, nem a hipersíkra eső $v_j$-ből és $v_k$-ból származtatott pont. $v_i$ és $v_k$ között $(k-j-1)$ db további $v_i$ pont van, amik mind a hipersíkra esetek.
+Tekintsünk egy tetszőleges origón átmenő $H$ hipersíkot. Folytonos mozgatással, anélkül, hogy bármely pontunk a hipersík túloldalára kerülne elérjük, hogy pontosan $n-2k$ pont legyen rajta. Legyenek $w_j$ és $w_k$ két egymást követő, nem a hipersíkra eső $v_j$-ből és $v_k$-ból származtatott pont. $v_j$ és $v_k$ között $(k-j-1)$ db további $v_i$ pont van, amik mind a hipersíkra esetek.
 
 \medskip
 Ha $(k-j-1)$ páratlan, akkor páratlan sokszor kereszteztük a hipersíkot, tehát $v_j$ és $v_k$ különböző oldalon vannak. Továbbá $(-1)^j = (-1)^k$ (hiszen $(j-k)$ páros), tehát $w_k, w_j$ is a hipersík különböző oldalára esik.
@@ -139,7 +139,7 @@ Akik kimaradtak: $B \in V(SG(n,k))$, amikre $|B \cap T_0| > \frac{T_0}{2}$ és $
 
 Ha B több $D_i$-be is kerülhet, tetszőlegesen választunk egyet. $S_i' := S_i \cup D_i$ - még így is függetlenek. Hiszen ha $B \in D_i$ és $B' \in S_i' \backslash D_i$, ekkor $B' \cap T_i$ = $T_i \backslash A$ és $B \cap (T_i \ A) \not = \emptyset$, vagyis $B \cap B' \not = \emptyset$ (tehát nincs közöttük él). Ha pedig $B, B' \in D_i$, akkor $\emptyset \not = T_0 \cap A \subseteq B \cap B'$, tehát $B$ és $B'$ nem diszjunkt.
 
-Az egyetlen $B \in V(SG(n,k))$ amire $B \not \in S_a \cup S_b \cup \cuploop{n-2k}{i=2} S_i$, az a $B=A$, vagyis az $S_a, S_b, S_2', \dots S_{n-2k}$ halmazok mint színosztályok $(SG(n,k) \backslash A)$-nak egy jó $(n-2k+1)$ színezését adják. Tehát $\chi(SG(n,k) \backslash \{a\}) \leq n - 2k + 1$.
+Az egyetlen $B \in V(SG(n,k))$ amire $B \not \in S_a \cup S_b \cup \cuploop{n-2k}{i=2} S_i$, az a $B=A$, vagyis az $S_a, S_b, S_2', \dots S_{n-2k}'$ halmazok mint színosztályok $(SG(n,k) \backslash A)$-nak egy jó $(n-2k+1)$ színezését adják. Tehát $\chi(SG(n,k) \backslash \{a\}) \leq n - 2k + 1$.
 
 \QED
 
